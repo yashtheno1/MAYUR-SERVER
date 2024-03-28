@@ -1,0 +1,48 @@
+[2024-03-20T13:30:46.036] [TRACE] catches - createuser - error thrown
+[2024-03-20T13:30:46.036] [ERROR] catches - TypeError: mainFn.createProfile is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/user.js:36:18
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
+[2024-03-20T13:30:52.353] [TRACE] catches - createuser - error thrown
+[2024-03-20T13:30:52.353] [ERROR] catches - TypeError: mainFn.createProfile is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/user.js:36:18
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
+[2024-03-20T13:31:43.443] [TRACE] catches - createuser - error thrown
+[2024-03-20T13:31:43.443] [ERROR] catches - TypeError: mainFn.createuser is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/user.js:36:18
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
+[2024-03-20T13:32:09.509] [TRACE] catches - createuser - error thrown
+[2024-03-20T13:32:09.509] [ERROR] catches - TypeError: mainFn.createuser is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/user.js:36:18
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
