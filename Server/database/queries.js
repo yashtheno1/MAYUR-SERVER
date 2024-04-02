@@ -25,6 +25,12 @@ var agent_profile = `CREATE TABLE IF NOT EXISTS Agent_profile(
   Notes TEXT,
   CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UserId INT,
+  CONSTRAINT fk_user_for_agent_profile
+  FOREIGN KEY (UserId)
+  REFERENCES Users(ID)
+  ON DELETE NO ACTION
+  ON UPDATE CASCADE,
   DUE INT
 );`;
 
@@ -44,6 +50,12 @@ var user_profile = `CREATE TABLE IF NOT EXISTS User_profile(
   CONSTRAINT fk_agent_for_user_profile
   FOREIGN KEY (AgentId)
   REFERENCES Agent_profile(ID)
+  ON DELETE NO ACTION
+  ON UPDATE CASCADE,
+  UserId INT,
+  CONSTRAINT fk_user_for_user_profile
+  FOREIGN KEY (UserId)
+  REFERENCES Users(ID)
   ON DELETE NO ACTION
   ON UPDATE CASCADE,
   DUE INT
@@ -164,13 +176,13 @@ dbpool.getConnection(async (err, connection) => {
       // users 
       // enquiries 
       //  agent_profile 
-      // user_profile 
+      user_profile 
       //  enrollments 
       // attendance 
       // vehicles 
       //  bills 
       //  activity 
-       notifications
+      //  notifications
       ,
       async (error, results) => {
       if (error) {

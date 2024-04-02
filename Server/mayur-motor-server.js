@@ -45,8 +45,8 @@ try {
   app.use('/enrollmentRequest', enrollmentRequest);
   var paymentsRequest = require("./https/payments");
   app.use('/paymentsRequest', paymentsRequest);
-  var vendorProductRequest = require("./https/other");
-  app.use('/vendorProductRequest', vendorProductRequest);
+  var other = require("./https/other");
+  app.use('/other', other);
 
   app.listen(port, () => {
     console.log("Server is running on port: " + port)

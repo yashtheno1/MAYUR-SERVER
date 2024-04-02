@@ -20,10 +20,153 @@ userRequest.get("/fetchusers", async (req, res) => {
       return res.send(response);
     })
     .catch(err => {
-      return res.send(err);
+      return res.status(500).send(err);
     });
 });
 
+/* 
+  method: fetchUserProfBrief
+  request type: GET
+  request body: {}
+  params: {}
+  response: {
+    userId: 'int',
+    displayName: 'string',
+    isActive: 'boolean',
+    imageId: 'int',
+    phoneNumber: 'string'
+  }
+*/
+userRequest.get("/fetchuserprofilebrief", async (req, res) => {
+  await mainFn.fetchuserprofilebrief()
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    });
+});
+
+/* 
+  method: fetchUserProfCount
+  request type: GET
+  request body: {}
+  auth token: not required
+  params: {
+    isActive: 'boolean'
+  }
+  response: {
+    totalCount: 'int',
+  }
+*/
+userRequest.get("/fetchuserprofilecount", async (req, res) => {
+  await mainFn.fetchuserprofilecount(req.query)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    }
+    );
+}
+);
+/* 
+  method: fetchUserProfDetail
+  request type: GET
+  request body: {}
+  auth token: not required
+  params: {
+    userId: 'int'
+  }
+  response: {
+    userId: 'int',
+    displayName: 'string',
+    registeredName: 'string',
+    isActive: 'boolean',
+    isCompleted: 'boolean',
+    phoneNumber: 'string',
+    address: 'string',
+    notes: 'string',
+    createdAt: 'timestamp',
+    updatedAt: 'timestamp',
+    agentId: 'int',
+    due: 'int',
+    enrollments: [{
+      enrollmentId: 'int',
+      type: 'string',
+      subType: 'string',
+      cost: 'int',
+      totalTime: 'float',
+      isRenewal: 'boolean'
+    }],
+    attendance: [{
+      attendanceId: 'int',
+      type: 'string',
+      isPresent: 'boolean',
+      isCompleted: 'boolean',
+      inTime: 'timestamp',
+      vehicleId: 'int'
+    }],
+    bills: [{
+      billId: 'int',
+      agentId: 'int',
+      enrollmentId: 'int',
+      date: 'date',
+      amount: 'int',
+      notes: 'string'
+    }]
+  }
+*/
+userRequest.get("/fetchuserprofiledetail", async (req, res) => {
+  await mainFn.fetchuserprofiledetail(req.query)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    }
+    );
+}
+);
+
+/* 
+  method: createUserProf
+  request type: POST
+  request body: {
+    displayName: 'string',
+    registeredName: 'string',
+    phoneNumber: 'string',
+    address: 'string',
+    notes: 'string',
+    agentId: 'int',
+    due: 'int'
+  }
+  auth token: required
+  response: {
+    success: 'boolean',
+    message: 'string',
+    userId: 'int'
+  }
+*/
+
+userRequest.post("/createuserprofile", async (req, res) => {
+  var body = req.body;
+  try {
+    body = JSON.parse(body);
+  } catch (e) { }
+  try {
+    await mainFn.createuserprofile(body)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    return res.send(e);
+  }
+}
+);
 /* 
   method : createProfile
   request type: POST
