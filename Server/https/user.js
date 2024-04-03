@@ -38,7 +38,7 @@ userRequest.get("/fetchusers", async (req, res) => {
   }
 */
 userRequest.get("/fetchuserprofilebrief", async (req, res) => {
-  await mainFn.fetchuserprofilebrief()
+  await mainFn.fetchuserprofilebrief(req.query)
     .then(response => {
       return res.send(response);
     })

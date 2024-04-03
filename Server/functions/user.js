@@ -31,15 +31,16 @@ fetchusers = () => {
     })
 };
 
-fetchuserprofilebrief = () => {
+fetchuserprofilebrief = (data) => {
     return new Promise(async (resolve, reject) => {
         dbpool.getConnection((err, conn) => {
             if (err) {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `phoneNumber`, `createdAt` FROM user_profile;',
-                    timeout: 40000
+                    sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `phoneNumber`, `createdAt` FROM user_profile WHERE `userId` = ?;',
+                    timeout: 40000,
+                    values: [data.userId]
                 }, (error, results) => {
                     if (error) {
                         conn.release();
@@ -61,10 +62,10 @@ fetchuserprofilecount = (data) => {
             if (err) {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
-                let sql = 'SELECT COUNT(*) as totalCount FROM user_profile';
-                const values = [];
+                let sql = 'SELECT COUNT(*) as totalCount FROM user_profile WHERE `userId` = ?';
+                const values = [data.userId];
                 if (data.isActive !== undefined) {
-                    sql += ' WHERE `isActive` = ?';
+                    sql += ' AND `isActive` = ?';
                     values.push(data.isActive);
                 }
                 conn.query({
@@ -120,15 +121,16 @@ createuserprofile = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'INSERT INTO `user_profile` (`displayName`, `registeredName`, `phoneNumber`, `imageId`, `address`, `notes`, `agentId`) VALUES (?,?,?,?,?,?,?);',
+                    sql: 'INSERT INTO `user_profile` (`userId`, `displayName`, `registeredName`, `phoneNumber`, `imageId`, `address`, `notes`, `agentId`) VALUES (?,?,?,?,?,?,?,?);',
                     timeout: 40000,
-                    values: [data.displayName, data.registeredName, data.phoneNumber,data.imageId, data.address, data.notes, data.agentId]
+                    values: [data.userId, data.displayName, data.registeredName, data.phoneNumber, data.imageId, data.address, data.notes, data.agentId]
                 }, (error, results) => {
                     if (error) {
                         conn.release();
                         return reject({ status: 'failed', err: error, data: { bResult: false } });
                     } else {
                         conn.release();
+                        console.log(results);
                         return resolve({ status: 'success', msg: 'user profile created', data: { sqllog: results, Result: true } });
                     }
                 })
@@ -196,7 +198,6 @@ fetchVendorDetails = (token) => {
         }
     })
 };
-
 updateuser = (data, token) => {
     return new Promise(async (resolve, reject) => {
         var jwtResponse = await jwt.jwtVerify(token);
@@ -259,7 +260,6 @@ updateuser = (data, token) => {
         }
     })
 };
-
 updatePhone = (data, token) => {
     return new Promise(async (resolve, reject) => {
         var jwtResponse = await jwt.jwtVerify(token);
@@ -295,7 +295,6 @@ updatePhone = (data, token) => {
         }
     })
 };
-
 changePassword = (data, token) => {
     return new Promise(async (resolve, reject) => {
         var jwtResponse = await jwt.jwtVerify(token)
@@ -339,7 +338,6 @@ changePassword = (data, token) => {
         }
     })
 };
-
 module.exports = {
     fetchusers,
     fetchuserprofilebrief,
