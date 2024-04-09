@@ -1,6 +1,6 @@
-[2024-04-07T09:09:52.387] [TRACE] catches - agent-agent-fetchAgentLinkedUserCount - undefined - error thrown
-[2024-04-07T09:09:52.388] [ERROR] catches - TypeError: mainFn.fetchAgentLinkedUserCount is not a function
-    at /Users/yash/Documents/Mayur Motors/Server/https/agent.js:103:18
+[2024-04-06T13:50:52.852] [TRACE] catches - agent-agent-createAgent - undefined - error thrown
+[2024-04-06T13:50:52.852] [ERROR] catches - TypeError: mainFn.createAgent is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/agent.js:37:18
     at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
     at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
     at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
@@ -10,9 +10,21 @@
     at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
     at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
     at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
-[2024-04-07T09:19:37.839] [TRACE] catches - agent-agent-fetchAgentProfileDetail - undefined - error thrown
-[2024-04-07T09:19:37.840] [ERROR] catches - TypeError: mainFn.fetchAgentProfileDetail is not a function
-    at /Users/yash/Documents/Mayur Motors/Server/https/agent.js:143:18
+[2024-04-06T13:55:08.819] [TRACE] catches - agent-agent-createAgent - undefined - error thrown
+[2024-04-06T13:55:08.819] [ERROR] catches - TypeError: mainFn.createAgent is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/agent.js:37:18
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
+[2024-04-06T14:29:27.431] [TRACE] catches - agent-agent-fetchAgentProfileBrief - error thrown
+[2024-04-06T14:29:27.431] [ERROR] catches - TypeError: mainFn.fetchAgentProfileBrief is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/agent.js:69:18
     at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
     at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
     at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)

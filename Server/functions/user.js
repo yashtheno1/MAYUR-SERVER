@@ -140,6 +140,7 @@ createuserprofile = (data) => {
     )
 };
 
+
 createuser = (data) => {
     return new Promise(async (resolve, reject) => {
         dbpool.getConnection((err, conn) => {

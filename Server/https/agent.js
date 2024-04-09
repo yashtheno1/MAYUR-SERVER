@@ -9,6 +9,189 @@ const catchLogger = require('log4js').getLogger('catches');
 const mainFn = require("../functions/agent");
 
 /* 
+  method: createAgent
+  request type: POST
+  request body: {
+    displayName: 'string',
+    registeredName: 'string',
+    phoneNumber: 'string',
+    imageId: 'int',
+    address: 'string',
+    notes: 'string',
+    userId: 'int',
+    due: 'int'
+  }
+  auth token: required
+  response: {
+    success: 'boolean',
+    message: 'string',
+    agentId: 'int'
+  }
+*/
+agentRequest.post("/createAgent", async (req, res) => {
+  var body = req.body;
+  try {
+    body = JSON.parse(body);
+  }
+  catch (e) { }
+  try {
+    await mainFn.createagent(body)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        agentLogger.trace('agent-agent-createAgent - ' + body.phoneNumber + ' - error thrown')
+        agentLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('agent-agent-createAgent - ' + body.phoneNumber + ' - error thrown')
+    catchLogger.error(e)
+  }
+});
+
+/* 
+  method: fetchAgentProfileBrief
+  request type: GET
+  request body: {}
+  auth token: required
+  params: { userId: 'int'}
+  response: [{
+    agentId: 'int',
+    displayName: 'string',
+    phoneNumber: 'string',
+    due: 'int',
+    createdAt: 'string',
+  }]
+*/
+agentRequest.get("/fetchAgentProfileBrief", async (req, res) => {
+  var params = req.query;
+  try {
+    await mainFn.fetchAgentProfileBrief(params)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        agentLogger.trace('agent-agent-fetchAgentProfileBrief - error thrown')
+        agentLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('agent-agent-fetchAgentProfileBrief - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
+/* 
+  method: fetchAgentLinkedUserCount
+  request type: GET
+  request body: {}
+  auth token: required
+  params: {
+    agentId: 'int'
+  }
+  response: {
+    success: 'boolean',
+    message: 'string',
+    linkedUserCount: 'int'
+  }
+*/
+agentRequest.get("/fetchAgentLinkedUserCount", async (req, res) => {
+  var params = req.query;
+  try {
+    await mainFn.fetchAgentLinkedUserCount(params)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        agentLogger.trace('agent-agent-fetchAgentLinkedUserCount - ' + params.agentId + ' - error thrown')
+        agentLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('agent-agent-fetchAgentLinkedUserCount - ' + params.agentId + ' - error thrown')
+    catchLogger.error(e)
+  }
+});
+
+/* 
+  method: fetchAgentProfileDetail
+  request type: GET
+  request body: {}
+  auth token: required
+  params: {
+    agentId: 'int'
+  }
+  response: {
+    agentId: 'int',
+    displayName: 'string',
+    registeredName: 'string',
+    isActive: 'boolean',
+    phoneNumber: 'string',
+    imageId: 'int',
+    address: 'string',
+    notes: 'string',
+    createdAt: 'timestamp',
+    updatedAt: 'timestamp',
+    due: 'int'
+  }
+*/
+agentRequest.get("/fetchAgentProfileDetail", async (req, res) => {
+  var params = req.query;
+  try {
+    await mainFn.fetchAgentProfileDetails(params)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        agentLogger.trace('agent-agent-fetchAgentProfileDetail - ' + params.agentId + ' - error thrown')
+        agentLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('agent-agent-fetchAgentProfileDetail - ' + params.agentId + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
+/*
+  method: fetchAgentLinkedUserProfiles
+  request type: GET
+  request body: {}
+  auth token: required
+  params: {
+    agentId: 'int'
+  }
+  response: [{
+    userId: 'int',
+    displayName: 'string',
+    isActive: 'boolean',
+    imageId: 'int',
+    phoneNumber: 'string'
+  }]
+*/
+agentRequest.get("/fetchAgentLinkedUserProfiles", async (req, res) => {
+  var params = req.query;
+  try {
+    await mainFn.fetchAgentLinkedUserProfiles(params)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        agentLogger.trace('agent-agent-fetchAgentLinkedUserProfiles - ' + params.agentId + ' - error thrown')
+        agentLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('agent-agent-fetchAgentLinkedUserProfiles - ' + params.agentId + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
+/* 
   method: sendRegistrationAndUpdatePhoneOTP
   request type: POST
   request body: { phone:'string', length:'int' }

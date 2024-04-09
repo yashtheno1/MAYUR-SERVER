@@ -70,6 +70,7 @@ userRequest.get("/fetchuserprofilecount", async (req, res) => {
     );
 }
 );
+
 /* 
   method: fetchUserProfDetail
   request type: GET
@@ -148,7 +149,6 @@ userRequest.get("/fetchuserprofiledetail", async (req, res) => {
     userId: 'int'
   }
 */
-
 userRequest.post("/createuserprofile", async (req, res) => {
   var body = req.body;
   try {
@@ -167,6 +167,7 @@ userRequest.post("/createuserprofile", async (req, res) => {
   }
 }
 );
+
 /* 
   method : createProfile
   request type: POST
