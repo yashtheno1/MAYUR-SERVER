@@ -10,6 +10,7 @@ const services = require('../util/services');
 const enrollmentLogger = require('log4js').getLogger('enrollment');
 
 fetchusercertifications = (data) => {
+    // console.log("hi")
     return new Promise(async (resolve, reject) => {
         dbpool.getConnection((err, conn) => {
             if (err) {
