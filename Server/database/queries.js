@@ -77,6 +77,17 @@ var enrollments = `CREATE TABLE IF NOT EXISTS Enrollments(
   ON UPDATE CASCADE
 );`;
 
+var certifications = `CREATE TABLE IF NOT EXISTS Certifications(
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Type VARCHAR(15),
+  User_ID INT,
+  CONSTRAINT fk_user_for_certifications
+  FOREIGN KEY (User_ID)
+  REFERENCES Users(ID)
+  ON DELETE NO ACTION
+  ON UPDATE CASCADE
+);`;
+
 var attendance = `CREATE TABLE IF NOT EXISTS Attendance(
   ID INT AUTO_INCREMENT PRIMARY KEY,
   User_profile_ID INT,
@@ -176,11 +187,12 @@ dbpool.getConnection(async (err, connection) => {
       // users 
       // enquiries 
       //  agent_profile 
-      user_profile 
+      // user_profile 
       //  enrollments 
       // attendance 
       // vehicles 
       //  bills 
+      certifications
       //  activity 
       //  notifications
       ,

@@ -121,17 +121,16 @@ createuserprofile = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'INSERT INTO `user_profile` (`userId`, `displayName`, `registeredName`, `phoneNumber`, `imageId`, `address`, `notes`, `agentId`) VALUES (?,?,?,?,?,?,?,?);',
+                    sql: 'INSERT INTO `user_profile` (`userId`, `displayName`, `aadhar`, `registeredName`, `phoneNumber`, `imageId`, `address`, `notes`, `agentId`) VALUES (?,?,?,?,?,?,?,?,?);',
                     timeout: 40000,
-                    values: [data.userId, data.displayName, data.registeredName, data.phoneNumber, data.imageId, data.address, data.notes, data.agentId]
+                    values: [data.userId, data.displayName, data.aadhar, data.registeredName, data.phoneNumber, data.imageId, data.address, data.notes, data.agentId]
                 }, (error, results) => {
                     if (error) {
                         conn.release();
                         return reject({ status: 'failed', err: error, data: { bResult: false } });
                     } else {
                         conn.release();
-                        console.log(results);
-                        return resolve({ status: 'success', msg: 'user profile created', data: { sqllog: results, Result: true } });
+                        return resolve({ status: 'success', msg: 'user profile created', data: { userId: results.insertId, Result: true } });
                     }
                 })
             }

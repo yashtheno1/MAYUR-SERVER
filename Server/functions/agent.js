@@ -158,6 +158,36 @@ fetchAgentLinkedUserProfiles = (data) => {
     })
 };
 
+fetchUserLinkedAgentProfile = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                agentLogger.trace('agent-agent-fetchUserLinkedAgentProfile - ' + data.userId + ' - error in db connection')
+                agentLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `createdAt` FROM `agent_profile` WHERE `ID` = ?;',
+                    timeout: 40000,
+                    values: [data.agentId]
+                }, (error, results) => {
+                    if (error) {
+                        agentLogger.trace('agent-agent-fetchUserLinkedAgentProfile - ' + data.userId + ' - error in select query')
+                        agentLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'user linked agent profile fetched', data: resultsHack[0] });
+                    }
+                })
+
+            }
+        })
+    })
+};
+
 sendRegistrationAndUpdatePhoneOTP = (data) => {
     return new Promise(async (resolve, reject) => {
         var OTP = await generators.genAllInOne(true, false, false, data.length);
@@ -449,6 +479,7 @@ module.exports = {
     fetchAgentLinkedUserCount,
     fetchAgentProfileDetails,
     fetchAgentLinkedUserProfiles,
+    fetchUserLinkedAgentProfile,
     sendRegistrationAndUpdatePhoneOTP,
     verifyOTP,
     register,

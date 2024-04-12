@@ -191,6 +191,40 @@ agentRequest.get("/fetchAgentLinkedUserProfiles", async (req, res) => {
 }
 );
 
+/*
+  method: fetchUserLinkedAgentProfile
+  request type: GET
+  request body: {}
+  auth token: required
+  params: {
+    agentId: 'int'
+  }
+  response: [{
+    agentId: 'int',
+    displayName: 'string',
+    isActive: 'boolean',
+    imageId: 'int'
+  }]
+*/
+agentRequest.get("/fetchUserLinkedAgentProfile", async (req, res) => {
+  var params = req.query;
+  try {
+    await mainFn.fetchUserLinkedAgentProfile(params)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        agentLogger.trace('agent-agent-fetchUserLinkedAgentProfile - ' + params.userId + ' - error thrown')
+        agentLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('agent-agent-fetchUserLinkedAgentProfile - ' + params.userId + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
 /* 
   method: sendRegistrationAndUpdatePhoneOTP
   request type: POST

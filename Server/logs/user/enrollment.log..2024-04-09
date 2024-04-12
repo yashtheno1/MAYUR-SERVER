@@ -1,5 +1,5 @@
-[2024-04-12T07:49:23.149] [TRACE] agent - agent-agent-fetchUserLinkedAgentProfile - undefined - error in select query
-[2024-04-12T07:49:23.149] [ERROR] agent - Error: Unknown column 'agentId' in 'where clause'
+[2024-04-09T11:27:49.244] [TRACE] enrollment - vendor-enrollment-fetchusercertifications - undefined - error in select query
+[2024-04-09T11:27:49.244] [ERROR] enrollment - Error: Unknown column 'userId' in 'where clause'
     at Packet.asError (/Users/yash/Documents/Mayur Motors/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
     at Query.execute (/Users/yash/Documents/Mayur Motors/Server/node_modules/mysql2/lib/commands/command.js:29:26)
     at PoolConnection.handlePacket (/Users/yash/Documents/Mayur Motors/Server/node_modules/mysql2/lib/connection.js:456:32)
@@ -13,13 +13,13 @@
   code: 'ER_BAD_FIELD_ERROR',
   errno: 1054,
   sqlState: '42S22',
-  sqlMessage: "Unknown column 'agentId' in 'where clause'",
-  sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `createdAt` FROM `agent_profile` WHERE `agentId` = NULL;'
+  sqlMessage: "Unknown column 'userId' in 'where clause'",
+  sql: 'SELECT * FROM `certifications` WHERE `userId` = NULL;'
 }
-[2024-04-12T07:49:23.151] [TRACE] agent - agent-agent-fetchUserLinkedAgentProfile - undefined - error thrown
-[2024-04-12T07:49:23.151] [ERROR] agent - {
+[2024-04-09T11:27:49.245] [TRACE] enrollment - vendor-enrollment-fetchusercertifications - undefined - error thrown
+[2024-04-09T11:27:49.245] [ERROR] enrollment - {
   status: 'failed',
-  err: Error: Unknown column 'agentId' in 'where clause'
+  err: Error: Unknown column 'userId' in 'where clause'
       at Packet.asError (/Users/yash/Documents/Mayur Motors/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
       at Query.execute (/Users/yash/Documents/Mayur Motors/Server/node_modules/mysql2/lib/commands/command.js:29:26)
       at PoolConnection.handlePacket (/Users/yash/Documents/Mayur Motors/Server/node_modules/mysql2/lib/connection.js:456:32)
@@ -33,8 +33,8 @@
     code: 'ER_BAD_FIELD_ERROR',
     errno: 1054,
     sqlState: '42S22',
-    sqlMessage: "Unknown column 'agentId' in 'where clause'",
-    sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `createdAt` FROM `agent_profile` WHERE `agentId` = NULL;'
+    sqlMessage: "Unknown column 'userId' in 'where clause'",
+    sql: 'SELECT * FROM `certifications` WHERE `userId` = NULL;'
   },
   data: { bResult: false }
 }
