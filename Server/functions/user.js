@@ -14,7 +14,7 @@ fetchusers = () => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'SELECT * FROM Users;',
+                    sql: 'SELECT * FROM users;',
                     timeout: 40000
                 }, (error, results) => {
                     if (error) {

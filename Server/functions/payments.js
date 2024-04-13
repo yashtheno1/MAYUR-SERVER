@@ -9,6 +9,87 @@ const multer = require('../util/multer');
 
 const paymentsLogger = require('log4js').getLogger('payments');
 
+fetchbilldetails = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-fetchbilldetails - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT up.ID AS userprofileId, up.DisplayName, up.RegisteredName, up.isActive, up.isCompleted, up.PhoneNumber, up.Address, up.Notes, e.ID AS enrollmentId, e.Type, e.SubType AS subtype, b.ID AS billId, b.Date, b.Amount FROM bills b JOIN user_profile up ON b.User_profile_ID = up.ID JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.ID = ?;',
+                    timeout: 40000,
+                    values: [data.billId]
+                }, (error, results) => {
+                    if (error) {
+                        paymentsLogger.trace('payment-fetchbilldetails - error in select query')
+                        paymentsLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'bill details fetched', data: resultsHack[0] });
+                    }
+                })
+
+            }
+        })
+    })
+}
+
+createbill = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-createbill - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.beginTransaction((err) => {
+                    if (err) {
+                        paymentsLogger.trace('payment-createbill - error in begin transaction')
+                        paymentsLogger.error(err)
+                        conn.release();
+                        return reject({ status: 'failed', err: err, data: { bResult: false } });
+                    } else {
+                        conn.query({
+                            sql: 'INSERT INTO `bills` (`User_profile_ID`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?);',
+                            timeout: 40000,
+                            values: [data.userId, data.enrollmentId, data.date, data.amount, data.notes]
+                        }, (error, results) => {
+                            if (error) {
+                                paymentsLogger.trace('payment-createbill - error in insert query')
+                                paymentsLogger.error(error)
+                                return conn.rollback(() => {
+                                    conn.release();
+                                    return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                });
+                            } else {
+                                conn.commit((err) => {
+                                    if (err) {
+                                        paymentsLogger.trace('payment-createbill - error in commiting queries')
+                                        paymentsLogger.error(err)
+                                        return conn.rollback(() => {
+                                            conn.release();
+                                            return reject({ status: 'failed', err: err, data: { bResult: false } });
+                                        });
+                                    } else {
+                                        conn.release();
+                                        return resolve({ status: 'success', msg: 'bill created', data: { billId: results.insertId, bResult: true } });
+                                    }
+                                });
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    })
+};
+
+
 fetchSizeTypes = () => {
     return new Promise(async (resolve, reject) => {
         dbpool.getConnection((err, conn) => {
@@ -754,6 +835,8 @@ fetchpaymentsDetails = (data, token) => {
 };
 
 module.exports = {
+    fetchbilldetails,
+    createbill,
     fetchSizeTypes,
     fetchSizeVariants,
     fetchMainCategories,

@@ -44,7 +44,7 @@ try {
   var enrollmentRequest = require("./https/enrollment");
   app.use('/enrollmentRequest', enrollmentRequest);
   var paymentsRequest = require("./https/payments");
-  app.use('/paymentsRequest', paymentsRequest);
+  app.use('/paymentRequest', paymentsRequest);
   var other = require("./https/other");
   app.use('/other', other);
 

@@ -9,6 +9,89 @@ const catchLogger = require('log4js').getLogger('catches');
 const mainFn = require("../functions/payments");
 
 /* 
+  method: fetchbilldetails
+  request type: GET
+  request body: {}
+  auth token: not required
+  params: {
+    billId: 'int'
+  }
+  response: {
+    userprofileId: 'int',
+    displayName: 'string',
+    registeredName: 'string',
+    isActive: 'boolean',
+    isCompleted: 'boolean',
+    phoneNumber: 'string',
+    address: 'string',
+    notes: 'string',
+    enrollmentId: 'int',
+    Type: 'string',
+    subtype: 'string',
+    billId: 'int'
+    date: 'date',
+    amount: 'int'
+    }
+  }
+*/
+paymentsRequest.get("/fetchbilldetails", async (req, res) => {
+  var query = req.query;
+  try {
+    await mainFn.fetchbilldetails(query)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        paymentsRequest.trace('fetchbilldetails - ' + query.billId + ' - error thrown')
+        paymentsRequest.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('fetchbilldetails - ' + query.billId + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
+/*
+ method:createbill
+  request type: POST
+  request body: {
+    userprofileId: 'int',
+    notes: 'string',
+    enrollmentId: 'int',
+    amount: 'int'
+  }
+  auth token: not required
+  response: {
+    success: 'boolean',
+    message: 'string',
+    billId: 'int'
+  }
+*/
+
+paymentsRequest.post("/createbill", async (req, res) => {
+  var body = req.body;
+  try {
+    body = JSON.parse(body);
+  } catch (e) { }
+  try {
+    await mainFn.createbill(body)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        paymentsLogger.trace('createbill - ' + ' - error thrown')
+        paymentsLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('createbill - ' + ' - error thrown')
+    catchLogger.error(e)
+  }
+});
+
+/* 
   method: fetchSizeTypes
   request type: GET
   request body: {}
