@@ -1,0 +1,22 @@
+[2024-04-12T06:38:38.412] [TRACE] catches - vendor-enrollment-fetchenrollments - error thrown
+[2024-04-12T06:38:38.412] [ERROR] catches - TypeError: mainFn.fetchenrollments is not a function
+    at /Users/yash/Documents/Mayur Motors/Server/https/enrollment.js:105:18
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/yash/Documents/Mayur Motors/Server/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:188:7)
+    at /Users/yash/Documents/Mayur Motors/Server/node_modules/cors/lib/index.js:224:17
+[2024-04-12T06:06:46.380] [TRACE] catches - fetchbilldetails - 1 - error thrown
+[2024-04-12T06:06:46.380] [ERROR] catches - TypeError: paymentsRequest.error is not a function
+    at /workspaces/MAYUR-SERVER/Server/https/payments.js:47:25
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /workspaces/MAYUR-SERVER/Server/https/payments.js:41:5
+[2024-04-12T06:07:06.036] [TRACE] catches - fetchbilldetails - 1 - error thrown
+[2024-04-12T06:07:06.037] [ERROR] catches - TypeError: paymentsRequest.error is not a function
+    at /workspaces/MAYUR-SERVER/Server/https/payments.js:47:25
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /workspaces/MAYUR-SERVER/Server/https/payments.js:41:5

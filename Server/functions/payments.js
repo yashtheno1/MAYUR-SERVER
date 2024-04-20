@@ -55,9 +55,9 @@ createbill = (data) => {
                         return reject({ status: 'failed', err: err, data: { bResult: false } });
                     } else {
                         conn.query({
-                            sql: 'INSERT INTO `bills` (`User_profile_ID`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?);',
+                            sql: 'INSERT INTO `bills` (`User_profile_ID`, `AgentId`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?,?);',
                             timeout: 40000,
-                            values: [data.userId, data.enrollmentId, data.date, data.amount, data.notes]
+                            values: [data.userId, data.agentId, data.enrollmentId, data.date, data.amount, data.notes]
                         }, (error, results) => {
                             if (error) {
                                 paymentsLogger.trace('payment-createbill - error in insert query')
@@ -88,6 +88,135 @@ createbill = (data) => {
         })
     })
 };
+
+fetchbillbrief = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-fetchbillbrief - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                const id = data.userID ? data.userID : data.agentId;
+                const query = data.userID ? 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;' : 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.Agent_ID = ?;';
+                conn.query({
+                    sql: query,
+                    timeout: 40000,
+                    values: [id]
+                }, (error, results) => {
+                    if (error) {
+                        paymentsLogger.trace('payment-fetchbillbrief - error in select query')
+                        paymentsLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'bill brief fetched', data: resultsHack });
+                    }
+                })
+            }
+        })
+    })
+};
+
+addagentdue = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-addagentdue - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.beginTransaction((err) => {
+                    if (err) {
+                        paymentsLogger.trace('payment-addagentdue - error in begin transaction')
+                        paymentsLogger.error(err)
+                        conn.release();
+                        return reject({ status: 'failed', err: err, data: { bResult: false } });
+                    } else {
+                        conn.query({
+                            sql: 'SELECT `DUE` FROM `agent_profile` WHERE `ID` = ?;',
+                            timeout: 40000,
+                            values: [data.agentId]
+                        }, (error, results) => {
+                            if (error) {
+                                paymentsLogger.trace('payment-addagentdue - error in select query')
+                                paymentsLogger.error(error)
+                                return conn.rollback(() => {
+                                    conn.release();
+                                    return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                });
+                            } else {
+                                var resultsHack = JSON.parse(JSON.stringify(results))
+                                console.log(resultsHack)
+                                var due = parseInt(resultsHack[0].DUE) + parseInt(data.amount);
+                                conn.query({
+                                    sql: 'UPDATE `agent_profile` SET `DUE` = ? WHERE `ID` = ?;',
+                                    timeout: 40000,
+                                    values: [due, data.agentId]
+                                }, (error, results) => {
+                                    if (error) {
+                                        paymentsLogger.trace('payment-addagentdue - error in update query')
+                                        paymentsLogger.error(error)
+                                        return conn.rollback(() => {
+                                            conn.release();
+                                            return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                        });
+                                    } else {
+                                        conn.commit((err) => {
+                                            if (err) {
+                                                paymentsLogger.trace('payment-addagentdue - error in commiting queries')
+                                                paymentsLogger.error(err)
+                                                return conn.rollback(() => {
+                                                    conn.release();
+                                                    return reject({ status: 'failed', err: err, data: { bResult: false } });
+                                                });
+                                            } else {
+                                                conn.release();
+                                                return resolve({ status: 'success', msg: 'agent due added', data: { bResult: true } });
+                                            }
+                                        });
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    })
+};
+
+fetchagentdue = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-fetchagentdue - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT `paid`, `DUE` FROM `agent_profile` WHERE `ID` = ?;',
+                    timeout: 40000,
+                    values: [data.agentId]
+                }, (error, results) => {
+                    if (error) {
+                        paymentsLogger.trace('payment-fetchagentdue - error in select query')
+                        paymentsLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'agent due fetched', data: resultsHack[0] });
+                    }
+                })
+            }
+        })
+    })
+};
+
 
 
 fetchSizeTypes = () => {
@@ -837,6 +966,9 @@ fetchpaymentsDetails = (data, token) => {
 module.exports = {
     fetchbilldetails,
     createbill,
+    fetchbillbrief,
+    addagentdue,
+    fetchagentdue,
     fetchSizeTypes,
     fetchSizeVariants,
     fetchMainCategories,
