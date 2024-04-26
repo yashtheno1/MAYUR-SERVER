@@ -6,6 +6,35 @@ const services = require('../util/services');
 
 const attendanceLogger = require('log4js').getLogger('attendance');
 
+fetchAttendance = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                attendanceLogger.trace('customer-attendance-fetchAttendance - ' + data.userId + ' - error in db connection')
+                attendanceLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT up.ID AS userprofileId, up.DisplayName, up.isActive, e.ID AS enrollmentId, e.Type, e.SubType, a.inTime, a.outcome, a.sessiontime AS SessionTime FROM Users u INNER JOIN User_profile up ON u.ID = up.UserId INNER JOIN Enrollments e ON up.ID = e.User_profile_ID INNER JOIN Attendance a ON up.ID = a.User_profile_ID WHERE u.ID = :userID;',
+                    timeout: 40000,
+                    values: [data.userId]
+                }, (error, results) => {
+                    if (error) {
+                        attendanceLogger.trace('customer-attendance-fetchAttendance - ' + data.userId + ' - error in fetching attendance')
+                        attendanceLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    }
+                    else {
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'attendance fetched', data: { attendance: results, bResult: true } });
+                    }
+                })
+            }
+        })
+    })
+};
+
 fetchCustomerDetails = (token) => {
     return new Promise(async (resolve, reject) => {
         var jwtResponse = await jwt.jwtVerify(token);
@@ -307,6 +336,7 @@ deleteAddress = (data, token) => {
 };
 
 module.exports = {
+    fetchAttendance,
     fetchCustomerDetails,
     updateattendance,
     updatePhone,

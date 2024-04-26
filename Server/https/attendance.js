@@ -8,6 +8,42 @@ const catchLogger = require('log4js').getLogger('catches');
 
 const mainFn = require("../functions/attendance");
 
+/*
+  method: fetchAttendance
+  request type: Get
+  request body: {
+    userId: 'int'
+  }
+  auth token: not required
+  response: {
+    success: 'boolean',
+    message: 'string',
+    attendance: [{
+      ID: 'int',
+      Date: 'string',
+      Time: 'string',
+      Type: 'string'
+    }, ...]
+  }
+*/
+attendanceRequest.get("/fetchAttendance", async (req, res) => {
+  var query = req.query;
+  try {
+    await mainFn.fetchAttendance(query)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        attendanceLogger.trace('customer-attendance-fetchAttendance - ' + query.userId + ' - error thrown')
+        attendanceLogger.error(err)
+        return res.send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('customer-attendance-fetchAttendance - ' + query.userId + ' - error thrown')
+    catchLogger.error(e)
+  }
+});
+
 /* 
   method: fetchCustomerDetails
   request type: Get
