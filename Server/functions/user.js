@@ -130,6 +130,7 @@ createuserprofile = (data) => {
                         return reject({ status: 'failed', err: error, data: { bResult: false } });
                     } else {
                         conn.release();
+                        console.log(results);
                         return resolve({ status: 'success', msg: 'user profile created', data: { userId: results.insertId, Result: true } });
                     }
                 })

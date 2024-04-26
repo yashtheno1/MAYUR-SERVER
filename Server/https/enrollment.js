@@ -118,10 +118,6 @@ enrollmentRequest.get("/fetchenrollments", async (req, res) => {
 }
 );
 
-
-
-
-
 /* 
   method: sendRegistrationAndUpdatePhoneOTP
   request type: POST

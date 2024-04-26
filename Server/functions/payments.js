@@ -55,7 +55,7 @@ createbill = (data) => {
                         return reject({ status: 'failed', err: err, data: { bResult: false } });
                     } else {
                         conn.query({
-                            sql: 'INSERT INTO `bills` (`User_profile_ID`, `AgentId`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?,?);',
+                            sql: 'INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?,?);',
                             timeout: 40000,
                             values: [data.userId, data.agentId, data.enrollmentId, data.date, data.amount, data.notes]
                         }, (error, results) => {
