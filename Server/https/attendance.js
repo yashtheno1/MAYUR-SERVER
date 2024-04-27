@@ -44,6 +44,40 @@ attendanceRequest.get("/fetchAttendance", async (req, res) => {
   }
 });
 
+/*
+  method: addAttendance
+  request type: POST
+  request body: {
+    enrollmentId: 'int',
+    type: 'string'
+  }
+  auth token: not required
+  response: {
+    success: 'boolean',
+    message: 'string'
+  }
+*/
+attendanceRequest.get("/addAttendance", async (req, res) => {
+  var body = req.query;
+  try {
+    body = JSON.parse(body);
+  } catch (e) { }
+  try {
+    await mainFn.addAttendance(body)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        attendanceLogger.trace('customer-attendance-addAttendance - ' + body.enrollmentId + ' - error thrown')
+        attendanceLogger.error(err)
+        return res.send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('customer-attendance-addAttendance - ' + body.enrollmentId + ' - error thrown')
+    catchLogger.error(e)
+  }
+});
+
 /* 
   method: fetchCustomerDetails
   request type: Get

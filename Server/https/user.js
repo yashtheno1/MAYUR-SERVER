@@ -168,7 +168,32 @@ userRequest.post("/createuserprofile", async (req, res) => {
 }
 );
 
-/* 
+/*
+  method: fetchuserprofbyname
+  request type: GET
+  request body: {
+  }
+  auth token: not required
+  params: {
+    userId: 'int'
+  }
+  response: {
+    userId: 'int',
+  }
+*/
+userRequest.get("/fetchuserprofbyname", async (req, res) => {
+  await mainFn.fetchuserprofbyname(req.query)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status
+    }
+    );
+}
+);
+
+  /* 
   method : createProfile
   request type: POST
 */

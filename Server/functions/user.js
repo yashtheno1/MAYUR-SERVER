@@ -140,6 +140,32 @@ createuserprofile = (data) => {
     )
 };
 
+fetchuserprofbyname = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT * FROM user_profile WHERE `registeredName` = ?;',
+                    timeout: 40000,
+                    values: [data.registeredName]
+                }, (error, results) => {
+                    if (error) {
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        var resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'user profile fetched', data: { data: resultsHack, bResult: true } });
+                    }
+                })
+            }
+        })
+    }
+    )
+};
+
 
 createuser = (data) => {
     return new Promise(async (resolve, reject) => {
@@ -345,6 +371,7 @@ module.exports = {
     fetchuserprofilecount,
     fetchuserprofiledetail,
     createuserprofile,
+    fetchuserprofbyname,
     createuser,
     fetchVendorDetails,
     updateuser,
