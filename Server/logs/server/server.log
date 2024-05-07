@@ -1,16 +1,217 @@
-[2024-04-27T02:44:50.245] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T02:58:16.095] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:08:10.135] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:42:23.381] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:44:39.281] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:46:03.930] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:46:14.686] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:52:46.020] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:52:59.539] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:54:47.566] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T03:54:51.393] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T04:10:52.737] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T04:12:22.294] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T04:12:34.001] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T04:15:27.833] [DEBUG] server - Server is running on port: 5088
-[2024-04-27T04:16:55.805] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T03:23:26.727] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T03:44:51.963] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T04:01:08.077] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:26:43.626] [ERROR] server - ReferenceError: fetchEnquiries is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/other.js:806:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/other.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T08:27:12.495] [ERROR] server - ReferenceError: fetchEnquiries is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/other.js:806:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/other.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T08:27:47.039] [ERROR] server - ReferenceError: createenquiry is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/other.js:807:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/other.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T08:27:58.259] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:34:03.461] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:34:25.581] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:35:57.356] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:36:14.965] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:38:02.076] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:40:55.688] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:41:31.798] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:43:51.235] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:44:26.619] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:46:41.816] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:48:25.933] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:50:00.102] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:53:34.826] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:54:47.546] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:56:41.320] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:57:22.698] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:57:29.594] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T08:58:56.828] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:04:18.350] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:04:57.316] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:06:40.802] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:08:11.807] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:08:26.661] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:09:22.044] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:09:39.919] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:10:32.595] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:10:42.094] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:11:59.079] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:14:21.206] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:15:10.755] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:17:08.042] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:17:30.188] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:18:55.045] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:23:43.007] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:24:04.780] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:28:00.395] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:28:21.886] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:28:40.784] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:29:15.851] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:29:57.888] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:30:10.787] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:33:18.357] [ERROR] server - ReferenceError: updateattendance is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/attendance.js:369:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/attendance.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:33:29.414] [ERROR] server - ReferenceError: updateattendance is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/attendance.js:369:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/attendance.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:35:48.353] [ERROR] server - ReferenceError: updateattendance is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/attendance.js:369:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/attendance.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:36:15.725] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:36:28.133] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:37:11.065] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:38:54.494] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:39:00.069] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:39:29.183] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:201:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:40:40.165] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:41:17.468] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:42:02.271] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:42:07.159] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:42:31.673] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:42:36.489] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:43:40.010] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:43:46.776] [ERROR] server - ReferenceError: updateuser is not defined
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/functions/user.js:225:5)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/user.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+[2024-05-07T09:44:12.066] [DEBUG] server - Server is running on port: 5088
+[2024-05-07T09:44:24.107] [DEBUG] server - Server is running on port: 5088

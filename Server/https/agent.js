@@ -224,173 +224,42 @@ agentRequest.get("/fetchUserLinkedAgentProfile", async (req, res) => {
   }
 }
 );
-
 /* 
-  method: sendRegistrationAndUpdatePhoneOTP
-  request type: POST
-  request body: { phone:'string', length:'int' }
-  agent token: no need
-  response: message
+method: updateagentprofile
+request type: POST
+request body: {
+  agentId: 'int',
+  displayName: 'string',
+  registeredName: 'string',
+  phoneNumber: 'string',
+  imageId: 'int',
+  address: 'string',
+  notes: 'string',
+  due: 'int'
+}
+auth token: required
+response: {
+  success: 'boolean',
+  message: 'string'
+}
 */
-agentRequest.post("/sendRegistrationAndUpdatePhoneOTP", async (req, res) => {
+agentRequest.post("/updateagentprofile", async (req, res) => {
   var body = req.body;
   try {
     body = JSON.parse(body);
   } catch (e) { }
   try {
-    await mainFn.sendRegistrationAndUpdatePhoneOTP(body)
+    await mainFn.updateagentprofile(body)
       .then(response => {
         return res.send(response);
       })
       .catch(err => {
-        agentLogger.trace('customer-agent-sendRegistrationAndUpdatePhoneOTP - ' + body.phone + ' - error thrown')
-        agentLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
-    catchLogger.trace('customer-agent-sendRegistrationAndUpdatePhoneOTP - ' + body.phone + ' - error thrown')
-    catchLogger.error(e)
+    return res.send(e);
   }
-});
-
-/* 
-  method: verifyOTP
-  request type: POST
-  request body: { phone:'string', otp:'int' }
-  agent token: no need
-  response: message
-*/
-agentRequest.post("/verifyOTP", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.verifyOTP(body)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        agentLogger.trace('customer-agent-verifyOTP - ' + body.phone + ' - error thrown')
-        agentLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-agent-verifyOTP - ' + body.phone + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: register
-  request type: POST
-  request body: {name:'string', phone:'string', password:'string'}
-  agent token: no need
-  response: message
-*/
-agentRequest.post("/register", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.register(body)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        agentLogger.trace('customer-agent-register - ' + body.phone + ' - error thrown')
-        agentLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-agent-register - ' + body.phone + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: login
-  request type: POST
-  request body: {phone:'string', password:'string'}
-  agent token: no need
-  response: token
-*/
-agentRequest.post("/login", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.login(body)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        agentLogger.trace('customer-agent-login - ' + body.phone + ' - error thrown')
-        agentLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-agent-login - ' + body.phone + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: sendForgetPasswordOTP
-  request type: POST
-  request body: {phone:'string', length:'int'}
-  agent token: no need
-  response: {customerId: int}
-*/
-agentRequest.post("/sendForgetPasswordOTP", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.sendForgetPasswordOTP(body)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        agentLogger.trace('customer-agent-sendForgetPasswordOTP - ' + body.phone + ' - error thrown')
-        agentLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-agent-sendForgetPasswordOTP - ' + body.phone + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: updatePassword
-  request type: POST
-  request body: {customerId:'int', password:'string'}
-  agent token: no need
-  response: message
-*/
-agentRequest.post("/updatePassword", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.updatePassword(body)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        agentLogger.trace('customer-agent-updatePassword - ' + body.customerId + ' - error thrown')
-        agentLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-agent-updatePassword - ' + body.customerId + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
+}
+);
 
 module.exports = agentRequest;

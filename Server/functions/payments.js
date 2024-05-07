@@ -217,6 +217,141 @@ fetchagentdue = (data) => {
     })
 };
 
+payagentdue = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-payagentdue - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.beginTransaction((err) => {
+                    if (err) {
+                        paymentsLogger.trace('payment-payagentdue - error in begin transaction')
+                        paymentsLogger.error(err)
+                        conn.release();
+                        return reject({ status: 'failed', err: err, data: { bResult: false } });
+                    } else {
+                        conn.query({
+                            sql: 'SELECT `DUE` FROM `agent_profile` WHERE `ID` = ?;',
+                            timeout: 40000,
+                            values: [data.agentId]
+                        }, (error, results) => {
+                            if (error) {
+                                paymentsLogger.trace('payment-payagentdue - error in select query')
+                                paymentsLogger.error(error)
+                                return conn.rollback(() => {
+                                    conn.release();
+                                    return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                });
+                            } else {
+                                var resultsHack = JSON.parse(JSON.stringify(results))
+                                var due = parseInt(resultsHack[0].DUE) - parseInt(data.amount);
+                                conn.query({
+                                    sql: 'UPDATE `agent_profile` SET `DUE` = ? WHERE `ID` = ?;',
+                                    timeout: 40000,
+                                    values: [due, data.agentId]
+                                }, (error, results) => {
+                                    if (error) {
+                                        paymentsLogger.trace('payment-payagentdue - error in update query')
+                                        paymentsLogger.error(error)
+                                        return conn.rollback(() => {
+                                            conn.release();
+                                            return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                        });
+                                    } else {
+                                        conn.commit((err) => {
+                                            if (err) {
+                                                paymentsLogger.trace('payment-payagentdue - error in commiting queries')
+                                                paymentsLogger.error(err)
+                                                return conn.rollback(() => {
+                                                    conn.release();
+                                                    return reject({ status: 'failed', err: err, data: { bResult: false } });
+                                                });
+                                            } else {
+                                                conn.release();
+                                                return resolve({ status: 'success', msg: 'agent due paid', data: { bResult: true } });
+                                            }
+                                        });
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    })
+};
+
+payuserdue = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-payuserdue - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.beginTransaction((err) => {
+                    if (err) {
+                        paymentsLogger.trace('payment-payuserdue - error in begin transaction')
+                        paymentsLogger.error(err)
+                        conn.release();
+                        return reject({ status: 'failed', err: err, data: { bResult: false } });
+                    } else {
+                        conn.query({
+                            sql: 'SELECT `paid` FROM `enrollments` WHERE `ID` = ?;',
+                            timeout: 40000,
+                            values: [data.enrollmentId]
+                        }, (error, results) => {
+                            if (error) {
+                                paymentsLogger.trace('payment-payuserdue - error in select query')
+                                paymentsLogger.error(error)
+                                return conn.rollback(() => {
+                                    conn.release();
+                                    return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                });
+                            } else {
+                                var resultsHack = JSON.parse(JSON.stringify(results))
+                                var paid = parseInt(resultsHack[0].paid) + parseInt(data.amount);
+                                conn.query({
+                                    sql: 'UPDATE `enrollments` SET `paid` = ? WHERE `ID` = ?;',
+                                    timeout: 40000,
+                                    values: [paid, data.enrollmentId]
+                                }, (error, results) => {
+                                    if (error) {
+                                        paymentsLogger.trace('payment-payuserdue - error in update query')
+                                        paymentsLogger.error(error)
+                                        return conn.rollback(() => {
+                                            conn.release();
+                                            return reject({ status: 'failed', err: error, data: { bResult: false } });
+                                        });
+                                    } else {
+                                        conn.commit((err) => {
+                                            if (err) {
+                                                paymentsLogger.trace('payment-payuserdue - error in commiting queries')
+                                                paymentsLogger.error(err)
+                                                return conn.rollback(() => {
+                                                    conn.release();
+                                                    return reject({ status: 'failed', err: err, data: { bResult: false } });
+                                                });
+                                            } else {
+                                                conn.release();
+                                                return resolve({ status: 'success', msg: 'user due paid', data: { bResult: true } });
+                                            }
+                                        });
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    })
+};
+
+
 
 
 fetchSizeTypes = () => {
@@ -969,6 +1104,8 @@ module.exports = {
     fetchbillbrief,
     addagentdue,
     fetchagentdue,
+    payagentdue,
+    payuserdue,
     fetchSizeTypes,
     fetchSizeVariants,
     fetchMainCategories,

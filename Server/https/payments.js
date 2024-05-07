@@ -125,7 +125,7 @@ paymentsRequest.get("/fetchbillbrief", async (req, res) => {
   }
 });
 
-/* addagentdue
+/* 
   method: addagentdue
   request type: POST
   request body: {
@@ -160,7 +160,7 @@ paymentsRequest.post("/addagentdue", async (req, res) => {
 }
 );
 
-/* fetchagentdue
+/* 
   method: fetchagentdue
   request type: GET
   request body: {
@@ -191,6 +191,77 @@ paymentsRequest.get("/fetchagentdue", async (req, res) => {
   }
 }
 );
+
+/* 
+ method: payagentdue
+  request type: POST
+  request body: {
+    agentId: 'int',
+    amount: 'int'
+  }
+  auth token: not required
+  response: {
+    success: 'boolean',
+    message: 'string'
+  }
+*/
+paymentsRequest.post("/payagentdue", async (req, res) => {
+  var body = req.body;
+  try {
+    body = JSON.parse(body);
+  } catch (e) { }
+  try {
+    await mainFn.payagentdue(body)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        paymentsLogger.trace('payagentdue - ' + ' - error thrown')
+        paymentsLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('payagentdue - ' + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
+/* 
+method: payuserdue
+  request type: POST
+  request body: {
+    enrollmentId: 'int',
+    amount: 'int'
+  }
+  auth token: not required
+  response: {
+    success: 'boolean',
+    message: 'string'
+  }
+*/
+paymentsRequest.post("/payuserdue", async (req, res) => {
+  var body = req.body;
+  try {
+    body = JSON.parse(body);
+  } catch (e) { }
+  try {
+    await mainFn.payuserdue(body)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        paymentsLogger.trace('payuserdue - ' + ' - error thrown')
+        paymentsLogger.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('payuserdue - ' + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
 /* 
   method: fetchSizeTypes
   request type: GET

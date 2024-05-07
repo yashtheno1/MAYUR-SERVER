@@ -1,42 +1,6 @@
-[2024-04-17T05:49:30.932] [TRACE] catches - fetchbillbrief - undefined - error thrown
-[2024-04-17T05:49:30.933] [ERROR] catches - TypeError: mainFn.fetchbillbrief is not a function
-    at /workspaces/MAYUR-SERVER/Server/https/payments.js:112:18
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:346:12)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:280:10)
-    at cors (/workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:188:7)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:224:17
-[2024-04-26T09:17:57.480] [TRACE] catches - customer-attendance-fetchAttendance - 8 - error thrown
-[2024-04-26T09:17:57.480] [ERROR] catches - TypeError: mainFn.fetchAttendance is not a function
-    at /workspaces/MAYUR-SERVER/Server/https/attendance.js:32:18
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:346:12)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:280:10)
-    at cors (/workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:188:7)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:224:17
-[2024-04-26T09:18:34.469] [TRACE] catches - customer-attendance-fetchAttendance - 8 - error thrown
-[2024-04-26T09:18:34.469] [ERROR] catches - TypeError: mainFn.fetchAttendance is not a function
-    at /workspaces/MAYUR-SERVER/Server/https/attendance.js:32:18
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:346:12)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:280:10)
-    at cors (/workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:188:7)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:224:17
-[2024-04-26T09:18:43.019] [TRACE] catches - customer-attendance-fetchAttendance - 8 - error thrown
-[2024-04-26T09:18:43.019] [ERROR] catches - TypeError: mainFn.fetchAttendance is not a function
-    at /workspaces/MAYUR-SERVER/Server/https/attendance.js:32:18
+[2024-05-07T08:46:21.091] [TRACE] catches - payagentdue -  - error thrown
+[2024-05-07T08:46:21.092] [ERROR] catches - TypeError: mainFn.payagentdue is not a function
+    at /workspaces/MAYUR-SERVER/Server/https/payments.js:214:18
     at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
     at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:149:13)
     at Route.dispatch (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:119:3)

@@ -220,85 +220,39 @@ userRequest.post("/createuser", async (req, res) => {
 /* 
   method: updateProfile
   request type: POST
-  request body: {name:'string', shopName:'string', locality:'string', address:'string', pincode:'int'}
-  auth token: req.headers.authorization
-  response: message
+  request body: {
+    userId: 'int',
+    displayName: 'string',
+    registeredName: 'string',
+    phoneNumber: 'string',
+    address: 'string',
+    notes: 'string',
+    agentId: 'int',
+    due: 'int'
+  }
+  auth token: required
+  response: {
+    success: 'boolean',
+    message: 'string'
+  }
 */
-userRequest.post("/updateProfile", async (req, res) => {
+userRequest.post("/updateuserprofile", async (req, res) => {
   var body = req.body;
   try {
     body = JSON.parse(body);
   } catch (e) { }
   try {
-    await mainFn.updateProfile(body, req.headers.authorization)
+    await mainFn.updateuserprofile(body)
       .then(response => {
         return res.send(response);
       })
       .catch(err => {
-        userLogger.trace('vendor-profile-updateProfile - ' + req.headers.authorization + ' - error thrown')
-        userLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
-    catchLogger.trace('vendor-profile-updateProfile - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
+    return res.send(e);
   }
-});
-
-/* 
-  method: updatePhone
-  request type: POST
-  request body: {phone:'string'}
-  auth token: req.headers.authorization
-  response: message
-*/
-userRequest.post("/updatePhone", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.updatePhone(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        userLogger.trace('vendor-profile-updatePhone - ' + req.headers.authorization + ' - error thrown')
-        userLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('vendor-profile-updatePhone - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: changePassword
-  request type: POST
-  request body: {password:'string'}
-  auth token: req.headers.authorization
-  response: message
-*/
-userRequest.post("/changePassword", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.changePassword(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        userLogger.trace('vendor-profile-changePassword - ' + req.headers.authorization + ' - error thrown')
-        userLogger.error(err)
-        return res.send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('vendor-profile-changePassword - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
+}
+);
 
 module.exports = userRequest;
