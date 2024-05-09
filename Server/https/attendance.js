@@ -36,7 +36,7 @@ attendanceRequest.get("/fetchAttendance", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-fetchAttendance - ' + query.userId + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-fetchAttendance - ' + query.userId + ' - error thrown')
@@ -70,7 +70,7 @@ attendanceRequest.get("/addAttendance", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-addAttendance - ' + body.enrollmentId + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-addAttendance - ' + body.enrollmentId + ' - error thrown')
@@ -103,7 +103,7 @@ attendanceRequest.post("/updateAttendance", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-updateAttendance - ' + body.attendanceId + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-updateAttendance - ' + body.attendanceId + ' - error thrown')
@@ -124,7 +124,7 @@ attendanceRequest.get("/fetchCustomerDetails", async (req, res) => {
       return res.send(response);
     })
     .catch(err => {
-      return res.send(err);
+      return res.status(500).send(err);
     });
 });
 
@@ -148,7 +148,7 @@ attendanceRequest.post("/updateattendance", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-updateattendance - ' + req.headers.authorization + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-updateattendance - ' + req.headers.authorization + ' - error thrown')
@@ -176,7 +176,7 @@ attendanceRequest.post("/updatePhone", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-updateattendance - ' + req.headers.authorization + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-updateattendance - ' + req.headers.authorization + ' - error thrown')
@@ -204,7 +204,7 @@ attendanceRequest.post("/changePassword", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-changePassword - ' + req.headers.authorization + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-changePassword - ' + req.headers.authorization + ' - error thrown')
@@ -232,7 +232,7 @@ attendanceRequest.post("/addAddress", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-addAddress - ' + req.headers.authorization + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-addAddress - ' + req.headers.authorization + ' - error thrown')
@@ -260,7 +260,7 @@ attendanceRequest.post("/updateAddress", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-updateAddress - ' + req.headers.authorization + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-updateAddress - ' + req.headers.authorization + ' - error thrown')
@@ -288,7 +288,7 @@ attendanceRequest.post("/deleteAddress", async (req, res) => {
       .catch(err => {
         attendanceLogger.trace('customer-attendance-deleteAddress - ' + req.headers.authorization + ' - error thrown')
         attendanceLogger.error(err)
-        return res.send(err);
+        return res.status(500).send(err);
       });
   } catch (e) {
     catchLogger.trace('customer-attendance-deleteAddress - ' + req.headers.authorization + ' - error thrown')

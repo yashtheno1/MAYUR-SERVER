@@ -49,9 +49,9 @@ addAttendance = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`) VALUES (?,?,?,?,?,?);',
+                    sql: 'INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES (?,?,?,?,?,?,?);',
                     timeout: 40000,
-                    values: [data.enrollmentId, data.type, data.isPresent, data.inTime, data.outTime, data.session]
+                    values: [data.enrollmentId, data.type, data.isPresent, data.inTime, data.outTime, data.session, data.vehicleId]
                 }, (error, results) => {
                     if (error) {
                         attendanceLogger.trace('customer-attendance-addAttendance - ' + data.userId + ' - error in inserting attendance')

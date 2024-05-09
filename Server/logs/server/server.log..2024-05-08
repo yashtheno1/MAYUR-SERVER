@@ -1,0 +1,65 @@
+[2024-05-08T03:50:31.501] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T03:55:41.780] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T03:57:26.194] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T03:57:36.675] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:19:08.044] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:24:46.880] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:25:15.375] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:25:49.850] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:26:09.876] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:27:16.229] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:37:12.996] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:38:59.999] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:39:02.231] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:45:15.212] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:45:33.479] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:46:25.455] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:46:31.457] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:49:00.229] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:49:05.028] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:49:14.990] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:50:35.298] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:51:00.136] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:52:03.148] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:52:59.409] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:53:20.613] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:53:46.691] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:54:01.496] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:54:25.361] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:54:33.560] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:55:34.228] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:56:18.921] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:56:36.968] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T04:59:26.465] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:00:50.691] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:00:57.529] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:26:22.419] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:27:39.781] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:27:47.807] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:28:07.806] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:28:50.881] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:28:53.605] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:29:04.975] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:29:09.379] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:31:58.110] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:32:14.015] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:33:37.228] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:34:01.958] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:36:49.852] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:37:11.400] [ERROR] server - /workspaces/MAYUR-SERVER/Server/functions/other.js:160
+}
+^
+
+SyntaxError: Unexpected token '}'
+    at internalCompileFunction (node:internal/vm:128:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1280:20)
+    at Module._compile (node:internal/modules/cjs/loader:1332:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/other.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+[2024-05-08T05:37:19.585] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:40:33.275] [DEBUG] server - Server is running on port: 5088

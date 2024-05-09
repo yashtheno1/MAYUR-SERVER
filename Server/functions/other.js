@@ -55,7 +55,7 @@ fetchenquiries = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'SELECT `ID`, `name`, `phone`, `message` FROM `enquiries` WHERE `user_ID` = ?;',
+                    sql: 'SELECT * FROM `enquiries` WHERE `user_ID` = ?;',
                     timeout: 40000,
                     values: [data.userId]
                 }, (error, results) => {
@@ -103,10 +103,10 @@ fetchactivity = (data) => {
             if (err) {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
-                var query = 'SELECT `ID`, `User_profile_ID`, `Agent_ID`, `Note`, `Activity` FROM `activity` WHERE `User_profile_ID` = ?;';
+                var query = 'SELECT * FROM `activity` WHERE `User_profile_ID` = ?;';
                 var values = [data.userId]
                 if (data.agentId) {
-                    query = 'SELECT `ID`, `User_profile_ID`, `Agent_ID`, `Note`, `Activity` FROM `activity` WHERE `Agent_ID` = ?;';
+                    query = 'SELECT * FROM `activity` WHERE `Agent_ID` = ?;';
                     values = [data.agentId]
                 }
                 conn.query({
@@ -158,6 +158,55 @@ fetchimage = (data) => {
     })
 }
 
+fetchvehicles = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT * FROM `vehicles` WHERE `UserId` = ?;',
+                    timeout: 40000,
+                    values: [data.userId]
+                }, (error, results) => {
+                    if (error) {
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        var resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'vehicles fetched', data: { vehicles: resultsHack, bResult: true } });
+                    }
+                })
+            }
+        })
+    })
+};
+
+fetchvehicle = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT * FROM `vehicles` WHERE `ID` = ?;',
+                    timeout: 40000,
+                    values: [data.vehicleId]
+                }, (error, results) => {
+                    if (error) {
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        var resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'vehicle fetched', data: { vehicle: resultsHack[0], bResult: true } });
+                    }
+                })
+            }
+        })
+    })
+};
 
 module.exports = {
     fetchenquiries,
@@ -165,5 +214,7 @@ module.exports = {
     createactivity,
     fetchactivity,
     uploadimage,
-    fetchimage
+    fetchimage,
+    fetchvehicles,
+    fetchvehicle
 };

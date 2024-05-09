@@ -124,4 +124,45 @@ otherRequest.get("/fetchimage", async (req, res) => {
 }
 );
 
+/*
+method: fetchvehicles
+request type: GET
+request body: {}
+auth token: no need
+params: {}
+response: {}
+*/
+otherRequest.get("/fetchvehicles", async (req, res) => {
+  var data = req.query;
+  await mainFn.fetchvehicles(data)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    }
+    );
+}
+);
+
+/*
+  method: fetchvehicle
+  request type: GET
+  request body: {}
+  auth token: no need
+  params: {}
+  response: {}
+*/
+otherRequest.get("/fetchvehicle", async (req, res) => {
+  var data = req.query;
+  await mainFn.fetchvehicle(data)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    }
+    );
+}
+);
 module.exports = otherRequest;
