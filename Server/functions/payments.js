@@ -57,7 +57,7 @@ createbill = (data) => {
                         conn.query({
                             sql: 'INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?,?);',
                             timeout: 40000,
-                            values: [data.userId, data.agentId, data.enrollmentId, data.date, data.amount, data.notes]
+                            values: [data.userId === 'null' ? null : data.userId, data.agentId === 'null' ? null : data.agentId, data.enrollmentId === 'null' ? null : data.enrollmentId, data.date === 'null' ? null : data.date, data.amount === 'null' ? null : data.amount, data.notes === 'null' ? null : data.notes]
                         }, (error, results) => {
                             if (error) {
                                 paymentsLogger.trace('payment-createbill - error in insert query')
@@ -98,7 +98,7 @@ fetchbillbrief = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 const id = data.userID ? data.userID : data.agentId;
-                const query = data.userID ? 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;' : 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.Agent_ID = ?;';
+                const query = data.userID ? 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;' : 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b WHERE b.Agent_ID = ?;';
                 conn.query({
                     sql: query,
                     timeout: 40000,
