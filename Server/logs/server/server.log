@@ -41,3 +41,25 @@
 [2024-05-08T05:28:53.605] [DEBUG] server - Server is running on port: 5088
 [2024-05-08T05:29:04.975] [DEBUG] server - Server is running on port: 5088
 [2024-05-08T05:29:09.379] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:31:58.110] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:32:14.015] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:33:37.228] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:34:01.958] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:36:49.852] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:37:11.400] [ERROR] server - /workspaces/MAYUR-SERVER/Server/functions/other.js:160
+}
+^
+
+SyntaxError: Unexpected token '}'
+    at internalCompileFunction (node:internal/vm:128:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1280:20)
+    at Module._compile (node:internal/modules/cjs/loader:1332:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+    at Module.load (node:internal/modules/cjs/loader:1206:32)
+    at Module._load (node:internal/modules/cjs/loader:1022:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/workspaces/MAYUR-SERVER/Server/https/other.js:9:16)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+[2024-05-08T05:37:19.585] [DEBUG] server - Server is running on port: 5088
+[2024-05-08T05:40:33.275] [DEBUG] server - Server is running on port: 5088

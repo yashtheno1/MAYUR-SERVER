@@ -148,10 +148,16 @@ uploadimage = (req, res) => {
 
 fetchimage = (data) => {
     return new Promise(async (resolve, reject) => {
-        var imagePath = path.join(constants.GENERAL_PATH_FOR_IMAGES, 'uploads', data.imagename);
+        var imagePath = null;
+        if (data.imagename && constants.GENERAL_PATH_FOR_IMAGES) {
+            imagePath = path.join(constants.GENERAL_PATH_FOR_IMAGES, 'uploads', data.imagename, '?token=GHSAT0AAAAAACNNMMSAAMKG22KWPGU2XFSIZR3DSMQ');
+        } else {
+            return reject({ status: 'failed', err: 'Invalid path components', data: { bResult: false } });
+        }
         return resolve({ status: 'success', msg: 'image path fetched', data: { imagePath: imagePath, bResult: true } });
     })
 }
+
 
 module.exports = {
     fetchenquiries,

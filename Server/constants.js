@@ -1,5 +1,5 @@
 MODE = 'github' //'local'
-GENERAL_PATH_FOR_IMAGES = '../vendor_panel/public/assets/images/';
+GENERAL_PATH_FOR_IMAGES = 'https://raw.githubusercontent.com/yashtheno1/MAYUR-SERVER/main';
 PATH_FOR_PRODUCT_IMAGES = GENERAL_PATH_FOR_IMAGES + 'product_images'
 
 DATABASE_HOST = MODE ===  'local' ? '192.168.1.108' : '82.180.142.51';
