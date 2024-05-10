@@ -34,3 +34,973 @@
   sqlMessage: "Not unique table/alias: 'attendance'",
   sql: "SELECT user_profile.*, attendance.* FROM attendance JOIN attendance ON user_profile.ID = attendance.User_profile_ID WHERE user_profile.userId = '8';"
 }
+[2024-05-10T07:45:08.749] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:45:08.749] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('37','LMV','true','null','null','null','null');"
+}
+[2024-05-10T07:45:08.755] [TRACE] attendance - customer-attendance-addAttendance - 37 - error thrown
+[2024-05-10T07:45:08.755] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('37','LMV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:45:25.290] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:45:25.290] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('37','LMV','true','null','null','null','null');"
+}
+[2024-05-10T07:45:25.291] [TRACE] attendance - customer-attendance-addAttendance - 37 - error thrown
+[2024-05-10T07:45:25.291] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('37','LMV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:47:27.808] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:47:27.808] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+}
+[2024-05-10T07:47:27.809] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:47:27.809] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:47:29.293] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:47:29.293] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+}
+[2024-05-10T07:47:29.293] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:47:29.293] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:48:28.376] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:48:28.376] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+}
+[2024-05-10T07:48:28.377] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:48:28.377] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:48:30.137] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:48:30.137] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+}
+[2024-05-10T07:48:30.137] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:48:30.137] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:48:32.187] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:48:32.187] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','false','null','null','null','null');"
+}
+[2024-05-10T07:48:32.187] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:48:32.187] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:48:32.525] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:48:32.525] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','false','null','null','null','null');"
+}
+[2024-05-10T07:48:32.526] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:48:32.526] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:48:33.003] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:48:33.003] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','false','null','null','null','null');"
+}
+[2024-05-10T07:48:33.003] [TRACE] attendance - customer-attendance-addAttendance - 22 - error thrown
+[2024-05-10T07:48:33.003] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('22','HGV','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:49:38.048] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:49:38.048] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','null','false','null','null','null','null');"
+}
+[2024-05-10T07:49:38.049] [TRACE] attendance - customer-attendance-addAttendance - null - error thrown
+[2024-05-10T07:49:38.049] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','null','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T07:49:38.614] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T07:49:38.614] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','null','false','null','null','null','null');"
+}
+[2024-05-10T07:49:38.614] [TRACE] attendance - customer-attendance-addAttendance - null - error thrown
+[2024-05-10T07:49:38.614] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','null','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T08:00:52.359] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T08:00:52.359] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','','false','2024-05-10 13:30:00.000','2024-05-10 16:30:00.000','180.0','4');"
+}
+[2024-05-10T08:00:52.360] [TRACE] attendance - customer-attendance-addAttendance - null - error thrown
+[2024-05-10T08:00:52.360] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','','false','2024-05-10 13:30:00.000','2024-05-10 16:30:00.000','180.0','4');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T08:01:08.010] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T08:01:08.010] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','','false','2024-05-10 13:30:00.000','2024-05-10 16:30:00.000','180.0','4');"
+}
+[2024-05-10T08:01:08.010] [TRACE] attendance - customer-attendance-addAttendance - null - error thrown
+[2024-05-10T08:01:08.010] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','','false','2024-05-10 13:30:00.000','2024-05-10 16:30:00.000','180.0','4');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T08:01:56.769] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T08:01:56.769] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('38','HGV','false','2024-05-10 13:31:00.000','2024-05-10 14:31:00.000','60.0','null');"
+}
+[2024-05-10T08:01:56.769] [TRACE] attendance - customer-attendance-addAttendance - 38 - error thrown
+[2024-05-10T08:01:56.769] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('38','HGV','false','2024-05-10 13:31:00.000','2024-05-10 14:31:00.000','60.0','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T09:40:24.602] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T09:40:24.602] [ERROR] attendance - Error: Unknown column 'user_profile.name' in 'field list'
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_profile.name' in 'field list'",
+  sql: 'SELECT user_profile.name, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID JOIN users ON user_profile.UserId = users.ID WHERE users.ID = NULL ORDER BY attendance.inTime DESC LIMIT 10;'
+}
+[2024-05-10T09:57:37.983] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T09:57:37.983] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+}
+[2024-05-10T09:57:37.990] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T09:57:37.992] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T09:57:46.470] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T09:57:46.470] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+}
+[2024-05-10T09:57:46.470] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T09:57:46.470] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T09:59:31.970] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T09:59:31.970] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','false','null','null','null','null');"
+}
+[2024-05-10T09:59:31.970] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T09:59:31.971] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T09:59:33.573] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T09:59:33.573] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','false','null','null','null','null');"
+}
+[2024-05-10T09:59:33.573] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T09:59:33.573] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T09:59:35.503] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T09:59:35.503] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+}
+[2024-05-10T09:59:35.503] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T09:59:35.503] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T09:59:36.317] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T09:59:36.317] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+}
+[2024-05-10T09:59:36.317] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T09:59:36.317] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T10:01:01.106] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T10:01:01.107] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+}
+[2024-05-10T10:01:01.107] [TRACE] attendance - customer-attendance-addAttendance - 39 - error thrown
+[2024-05-10T10:01:01.107] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_vehicle_for_attendance` FOREIGN KEY (`Vehicle_ID`) REFERENCES `vehicles` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('39','HGV','true','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T10:05:27.108] [TRACE] attendance - customer-attendance-addAttendance - undefined - error in inserting attendance
+[2024-05-10T10:05:27.108] [ERROR] attendance - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','null','false','null','null','null','null');"
+}
+[2024-05-10T10:05:27.110] [TRACE] attendance - customer-attendance-addAttendance - null - error thrown
+[2024-05-10T10:05:27.110] [ERROR] attendance - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:518:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`attendance`, CONSTRAINT `fk_enrollment_for_attendance` FOREIGN KEY (`Enrollment_ID`) REFERENCES `enrollments` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `attendance` (`Enrollment_ID`, `Type`, `isPresent`, `inTime`, `outTime`, `session`, `Vehicle_ID`) VALUES ('null','null','false','null','null','null','null');"
+  },
+  data: { bResult: false }
+}
+[2024-05-10T10:09:25.546] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:09:25.546] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1",
+  sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID DESC;'
+}
+[2024-05-10T10:09:58.249] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:09:58.249] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1",
+  sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID ORDER BY DESC;'
+}
+[2024-05-10T10:10:04.302] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:10:04.302] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1",
+  sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID ORDER DESC;'
+}
+[2024-05-10T10:10:16.729] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:10:16.729] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SORT DESC' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SORT DESC' at line 1",
+  sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID SORT DESC;'
+}

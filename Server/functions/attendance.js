@@ -394,6 +394,36 @@ fetchalluserAttendance = (data) => {
     )
 };   
 
+latestattendance = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                attendanceLogger.trace('customer-attendance-fetchalluserAttendance - ' + data.userId + ' - error in db connection')
+                attendanceLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID ORDER BY attendance.inTime DESC;',
+                    timeout: 40000
+                }, (error, results) => {
+                    if (error) {
+                        var resultsHack = JSON.parse(JSON.stringify(results))
+                        console.log(results)
+                        attendanceLogger.trace('customer-attendance-fetchalluserAttendance - ' + data.userId + ' - error in fetching attendance')
+                        attendanceLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'attendance fetched', data: { attendance: resultsHack, bResult: true } });
+                    }
+                });
+            }
+        }
+        )
+    }
+    )
+}
 
 module.exports = {
     fetchAttendance,
@@ -405,5 +435,6 @@ module.exports = {
     addAddress,
     updateAddress,
     deleteAddress,
-    fetchalluserAttendance
+    fetchalluserAttendance,
+    latestattendance
 };

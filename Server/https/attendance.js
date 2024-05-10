@@ -172,4 +172,21 @@ attendanceRequest.get("/fetchalluserAttendance", async (req, res) => {
     });
 });
 
+/* 
+method: latestattendance
+request type: Get
+request body: {}
+auth token: req.headers.authorization
+response: message
+*/
+attendanceRequest.get("/latestattendance", async (req, res) => {
+  await mainFn.latestattendance(req.query)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    });
+});
+
 module.exports = attendanceRequest;
