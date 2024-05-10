@@ -155,145 +155,21 @@ attendanceRequest.post("/updateattendance", async (req, res) => {
     catchLogger.error(e)
   }
 });
-
-/* 
-  method: updatePhone
-  request type: POST
-  request body: {phone:'int'}
-  auth token: req.headers.authorization
-  response: message
+/*
+method: fetchalluserAttendance
+request type: Get
+request body: {}
+auth token: req.headers.authorization
+response: message
 */
-attendanceRequest.post("/updatePhone", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.updatePhone(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        attendanceLogger.trace('customer-attendance-updateattendance - ' + req.headers.authorization + ' - error thrown')
-        attendanceLogger.error(err)
-        return res.status(500).send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-attendance-updateattendance - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: changePassword
-  request type: POST
-  request body: {phone:'int',password:'string'}
-  auth token: req.headers.authorization
-  response: message
-*/
-attendanceRequest.post("/changePassword", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.changePassword(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        attendanceLogger.trace('customer-attendance-changePassword - ' + req.headers.authorization + ' - error thrown')
-        attendanceLogger.error(err)
-        return res.status(500).send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-attendance-changePassword - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: addAddress
-  request type: POST
-  request body: {address:"string",locality:"string",pincode:'int'}
-  auth token: req.headers.authorization
-  response: message
-*/
-attendanceRequest.post("/addAddress", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.addAddress(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        attendanceLogger.trace('customer-attendance-addAddress - ' + req.headers.authorization + ' - error thrown')
-        attendanceLogger.error(err)
-        return res.status(500).send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-attendance-addAddress - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: updateAddress
-  request type: POST
-  request body: {address:"string",locality:"string",pincode:'int',addressId:"int"}
-  auth token: req.headers.authorization
-  response: message
-*/
-attendanceRequest.post("/updateAddress", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.updateAddress(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        attendanceLogger.trace('customer-attendance-updateAddress - ' + req.headers.authorization + ' - error thrown')
-        attendanceLogger.error(err)
-        return res.status(500).send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-attendance-updateAddress - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
-});
-
-/* 
-  method: deleteAddress
-  request type: POST
-  request body: {addressId:"int"}
-  auth token: req.headers.authorization
-  response: message
-*/
-attendanceRequest.post("/deleteAddress", async (req, res) => {
-  var body = req.body;
-  try {
-    body = JSON.parse(body);
-  } catch (e) { }
-  try {
-    await mainFn.deleteAddress(body, req.headers.authorization)
-      .then(response => {
-        return res.send(response);
-      })
-      .catch(err => {
-        attendanceLogger.trace('customer-attendance-deleteAddress - ' + req.headers.authorization + ' - error thrown')
-        attendanceLogger.error(err)
-        return res.status(500).send(err);
-      });
-  } catch (e) {
-    catchLogger.trace('customer-attendance-deleteAddress - ' + req.headers.authorization + ' - error thrown')
-    catchLogger.error(e)
-  }
+attendanceRequest.get("/fetchalluserAttendance", async (req, res) => {
+  await mainFn.fetchalluserAttendance(req.query)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    });
 });
 
 module.exports = attendanceRequest;

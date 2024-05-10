@@ -98,7 +98,7 @@ fetchbillbrief = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 const id = data.userID ? data.userID : data.agentId;
-                const query = data.userID ? 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;' : 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b WHERE b.Agent_ID = ?;';
+                const query = data.userID ? 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;' : 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.Agent_ID = ?;';
                 conn.query({
                     sql: query,
                     timeout: 40000,

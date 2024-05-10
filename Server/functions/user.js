@@ -38,7 +38,7 @@ fetchuserprofilebrief = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `phoneNumber`, `createdAt` FROM user_profile WHERE `userId` = ?;',
+                    sql: 'SELECT `id`, `displayName`, `isActive`, `imageId`, `address`, `phoneNumber`, `createdAt` FROM user_profile WHERE `userId` = ?;',
                     timeout: 40000,
                     values: [data.userId]
                 }, (error, results) => {
