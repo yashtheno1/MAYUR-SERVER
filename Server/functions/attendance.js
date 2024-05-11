@@ -449,7 +449,7 @@ fetchtotaltime = (data) => {
                             totalTime += data.session;
                         });
                         conn.release();
-                        return resolve({ status: 'success', msg: 'attendance fetched', data: { totalTime: totalTime, attendance: resultsHack, bResult: true } });
+                        return resolve({ status: 'success', msg: 'attendance fetched', data: { totalTime: resultsHack[0].totalTime, bResult: true } });
                     }
                 })
             }
