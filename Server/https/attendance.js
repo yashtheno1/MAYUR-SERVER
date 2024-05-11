@@ -189,4 +189,21 @@ attendanceRequest.get("/latestattendance", async (req, res) => {
     });
 });
 
+/*
+method: fetchtotaltime
+request type: Get
+request body: {}
+auth token: req.headers.authorization
+response: message
+*/
+attendanceRequest.get("/fetchtotaltime", async (req, res) => {
+  await mainFn.fetchtotaltime(req.query)
+    .then(response => {
+      return res.send(response);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    });
+});
+
 module.exports = attendanceRequest;
