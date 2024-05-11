@@ -403,11 +403,11 @@ latestattendance = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID ORDER BY attendance.inTime DESC;',
+                    sql: 'SELECT attendance.*, user_profile.displayName FROM attendance JOIN enrollments ON attendance.Enrollment_ID = enrollments.ID JOIN user_profile ON enrollments.User_profile_ID = user_profile.ID ORDER BY attendance.ID DESC LIMIT 10;',
                     timeout: 40000
                 }, (error, results) => {
                     if (error) {
-                        var resultsHack = JSON.parse(JSON.stringify(results))
+                        // var resultsHack = JSON.parse(JSON.stringify(results))
                         console.log(results)
                         attendanceLogger.trace('customer-attendance-fetchalluserAttendance - ' + data.userId + ' - error in fetching attendance')
                         attendanceLogger.error(error)
@@ -415,7 +415,7 @@ latestattendance = (data) => {
                         return reject({ status: 'failed', err: error, data: { bResult: false } });
                     } else {
                         conn.release();
-                        return resolve({ status: 'success', msg: 'attendance fetched', data: { attendance: resultsHack, bResult: true } });
+                        return resolve({ status: 'success', msg: 'attendance fetched', data: { attendance: results, bResult: true } });
                     }
                 });
             }

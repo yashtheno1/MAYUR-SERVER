@@ -1004,3 +1004,57 @@
   sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SORT DESC' at line 1",
   sql: 'SELECT user_profile.displayName, attendance.* FROM attendance JOIN user_profile ON attendance.User_profile_ID = user_profile.ID SORT DESC;'
 }
+[2024-05-10T10:30:41.510] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:30:41.510] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORBER BY attendance.ID DESC LIMIT 10' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORBER BY attendance.ID DESC LIMIT 10' at line 1",
+  sql: 'SELECT attendance.*, user_profile.displayName FROM attendance JOIN enrollments ON attendance.Enrollment_ID = enrollments.ID JOIN user_profile ON enrollments.User_profile_ID = user_profile.ID ORBER BY attendance.ID DESC LIMIT 10;'
+}
+[2024-05-10T10:31:02.731] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:31:02.731] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORBER BY attendance.ID LIMIT 10 DESC' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORBER BY attendance.ID LIMIT 10 DESC' at line 1",
+  sql: 'SELECT attendance.*, user_profile.displayName FROM attendance JOIN enrollments ON attendance.Enrollment_ID = enrollments.ID JOIN user_profile ON enrollments.User_profile_ID = user_profile.ID ORBER BY attendance.ID LIMIT 10 DESC;'
+}
+[2024-05-10T10:31:17.247] [TRACE] attendance - customer-attendance-fetchalluserAttendance - undefined - error in fetching attendance
+[2024-05-10T10:31:17.247] [ERROR] attendance - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC' at line 1",
+  sql: 'SELECT attendance.*, user_profile.displayName FROM attendance JOIN enrollments ON attendance.Enrollment_ID = enrollments.ID JOIN user_profile ON enrollments.User_profile_ID = user_profile.ID ORDER BY attendance.ID LIMIT 10 DESC;'
+}
