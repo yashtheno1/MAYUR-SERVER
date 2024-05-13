@@ -54,6 +54,7 @@ createbill = (data) => {
                         conn.release();
                         return reject({ status: 'failed', err: err, data: { bResult: false } });
                     } else {
+                        console.log(JSON.stringify(data.date))
                         conn.query({
                             sql: 'INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?,?);',
                             timeout: 40000,
@@ -97,8 +98,43 @@ fetchbillbrief = (data) => {
                 paymentsLogger.error(err)
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
-                const id = data.userID ? data.userID : data.agentId;
-                const query = data.userID ? 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;' : 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.Agent_ID = ?;';
+                const id = data.userID ;
+                const query = 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;';
+                console.log(query)
+                console.log(id)
+                conn.query({
+                    sql: query,
+                    timeout: 40000,
+                    values: [id]
+                }, (error, results) => {
+                    if (error) {
+                        paymentsLogger.trace('payment-fetchbillbrief - error in select query')
+                        paymentsLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    } else {
+                        resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'bill brief fetched', data: resultsHack });
+                    }
+                })
+            }
+        })
+    })
+};
+
+fetchbillbriefagent = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-fetchbillbrief - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                const id = data.agentId ;
+                const query = 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agent_Id = ?;';
+                console.log(query)
+                console.log(id)
                 conn.query({
                     sql: query,
                     timeout: 40000,
@@ -1102,6 +1138,7 @@ module.exports = {
     fetchbilldetails,
     createbill,
     fetchbillbrief,
+    fetchbillbriefagent,
     addagentdue,
     fetchagentdue,
     payagentdue,

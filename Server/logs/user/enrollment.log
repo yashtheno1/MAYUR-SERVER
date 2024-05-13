@@ -1,16 +1,64 @@
-[2024-05-09T17:44:01.953] [TRACE] enrollment - vendor-enrollment-createenrollment - 56 - error in insert query
-[2024-05-09T17:44:01.954] [ERROR] enrollment - Error: read ECONNRESET
-    at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+[2024-05-12T14:31:52.601] [TRACE] enrollment - vendor-enrollment-fetchenrollments - 35 - error in db connection
+[2024-05-12T14:31:52.602] [ERROR] enrollment - Error: connect ETIMEDOUT
+    at PoolConnection._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:189:17)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true
+}
+[2024-05-12T14:31:52.603] [TRACE] enrollment - vendor-enrollment-fetchenrollments - error thrown
+[2024-05-12T14:31:52.603] [ERROR] enrollment - {
+  status: 'failed',
+  err: Error: connect ETIMEDOUT
+      at PoolConnection._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:189:17)
+      at listOnTimeout (node:internal/timers:573:17)
+      at process.processTimers (node:internal/timers:514:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect',
+    fatal: true
+  },
+  data: { bResult: false }
+}
+[2024-05-12T14:31:52.603] [TRACE] enrollment - vendor-enrollment-fetchenrollments - 52 - error in db connection
+[2024-05-12T14:31:52.603] [ERROR] enrollment - Error: connect ETIMEDOUT
+    at PoolConnection._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:189:17)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true
+}
+[2024-05-12T14:31:52.604] [TRACE] enrollment - vendor-enrollment-fetchenrollments - error thrown
+[2024-05-12T14:31:52.604] [ERROR] enrollment - {
+  status: 'failed',
+  err: Error: connect ETIMEDOUT
+      at PoolConnection._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:189:17)
+      at listOnTimeout (node:internal/timers:573:17)
+      at process.processTimers (node:internal/timers:514:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect',
+    fatal: true
+  },
+  data: { bResult: false }
+}
+[2024-05-12T14:32:30.864] [TRACE] enrollment - vendor-enrollment-fetchenrollments - 33 - error in select query
+[2024-05-12T14:32:30.864] [ERROR] enrollment - Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:218:20) {
   errno: -104,
   code: 'ECONNRESET',
   syscall: 'read',
   fatal: true
 }
-[2024-05-09T17:44:01.954] [TRACE] enrollment - vendor-enrollment-createenrollment - 56 - error thrown
-[2024-05-09T17:44:01.954] [ERROR] enrollment - {
+[2024-05-12T14:32:30.864] [TRACE] enrollment - vendor-enrollment-fetchenrollments - error thrown
+[2024-05-12T14:32:30.864] [ERROR] enrollment - {
   status: 'failed',
   err: Error: read ECONNRESET
-      at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      at TCP.onStreamRead (node:internal/stream_base_commons:218:20) {
     errno: -104,
     code: 'ECONNRESET',
     syscall: 'read',
@@ -18,8 +66,37 @@
   },
   data: { bResult: false }
 }
-[2024-05-09T17:44:41.916] [TRACE] enrollment - vendor-enrollment-createenrollment - 56 - error in insert query
-[2024-05-09T17:44:41.916] [ERROR] enrollment - Error: Query inactivity timeout
+[2024-05-12T14:32:31.068] [TRACE] enrollment - vendor-enrollment-fetchenrollments - null - error in select query
+[2024-05-12T14:32:31.068] [ERROR] enrollment - Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:218:20) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  fatal: true
+}
+[2024-05-12T14:32:31.068] [TRACE] enrollment - vendor-enrollment-fetchenrollments - error thrown
+[2024-05-12T14:32:31.068] [ERROR] enrollment - {
+  status: 'failed',
+  err: Error: read ECONNRESET
+      at TCP.onStreamRead (node:internal/stream_base_commons:218:20) {
+    errno: -104,
+    code: 'ECONNRESET',
+    syscall: 'read',
+    fatal: true
+  },
+  data: { bResult: false }
+}
+[2024-05-12T14:32:50.845] [TRACE] enrollment - vendor-enrollment-fetchenrollments - 33 - error in select query
+[2024-05-12T14:32:50.845] [ERROR] enrollment - Error: Query inactivity timeout
+    at Query._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/query.js:306:17)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  errorno: 'PROTOCOL_SEQUENCE_TIMEOUT',
+  code: 'PROTOCOL_SEQUENCE_TIMEOUT',
+  syscall: 'query'
+}
+[2024-05-12T14:32:51.048] [TRACE] enrollment - vendor-enrollment-fetchenrollments - null - error in select query
+[2024-05-12T14:32:51.048] [ERROR] enrollment - Error: Query inactivity timeout
     at Query._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/query.js:306:17)
     at listOnTimeout (node:internal/timers:573:17)
     at process.processTimers (node:internal/timers:514:7) {

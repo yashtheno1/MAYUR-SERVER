@@ -125,6 +125,41 @@ paymentsRequest.get("/fetchbillbrief", async (req, res) => {
   }
 });
 
+/*
+method: fetchbillbriefagent
+  request type: GET
+  request body: {
+    agentId: 'int'
+  }
+  auth token: not required
+  response: {
+    billId: 'int',
+    enrollmentId: 'int',
+    date: 'date',
+    amount: 'int'
+    type: 'string',
+    subtype: 'string'
+  }
+*/
+paymentsRequest.get("/fetchbillbriefagent", async (req, res) => {
+  var query = req.query;
+  try {
+    await mainFn.fetchbillbriefagent(query)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        paymentsLogger.trace('fetchbill - ' + query.agentId + ' - error thrown')
+        paymentsLogger.error(err)
+        return res.status(500).send
+      }
+      );
+  } catch (e) {
+    catchLogger.trace('fetchbill - ' + query.agentId + ' - error thrown')
+    catchLogger.error(e)
+  }
+});
+
 /* 
   method: addagentdue
   request type: POST

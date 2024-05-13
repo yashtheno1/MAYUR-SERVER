@@ -1,0 +1,29 @@
+[2024-05-09T17:44:01.953] [TRACE] enrollment - vendor-enrollment-createenrollment - 56 - error in insert query
+[2024-05-09T17:44:01.954] [ERROR] enrollment - Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  fatal: true
+}
+[2024-05-09T17:44:01.954] [TRACE] enrollment - vendor-enrollment-createenrollment - 56 - error thrown
+[2024-05-09T17:44:01.954] [ERROR] enrollment - {
+  status: 'failed',
+  err: Error: read ECONNRESET
+      at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+    errno: -104,
+    code: 'ECONNRESET',
+    syscall: 'read',
+    fatal: true
+  },
+  data: { bResult: false }
+}
+[2024-05-09T17:44:41.916] [TRACE] enrollment - vendor-enrollment-createenrollment - 56 - error in insert query
+[2024-05-09T17:44:41.916] [ERROR] enrollment - Error: Query inactivity timeout
+    at Query._handleTimeoutError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/query.js:306:17)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  errorno: 'PROTOCOL_SEQUENCE_TIMEOUT',
+  code: 'PROTOCOL_SEQUENCE_TIMEOUT',
+  syscall: 'query'
+}
