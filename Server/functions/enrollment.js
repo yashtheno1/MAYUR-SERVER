@@ -31,7 +31,7 @@ fetchusercertifications = (data) => {
                     } else {
                         var resultsHack = JSON.parse(JSON.stringify(results))
                         conn.release();
-                        console.log(resultsHack)
+                        // console.log(resultsHack)
                         return resolve({ status: 'success', msg: 'certifications fetched', data: { Types: resultsHack, bResult: true } });
                     }
                 })

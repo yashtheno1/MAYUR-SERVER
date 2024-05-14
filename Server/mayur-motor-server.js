@@ -46,10 +46,11 @@ try {
   var paymentsRequest = require("./https/payments");
   app.use('/paymentRequest', paymentsRequest);
   var other = require("./https/other");
+const os = require('os');
   app.use('/other', other);
 
   app.listen(port, () => {
-    console.log("Server is running on port: " + port)
+    console.log("Server is running on port: " + port);
     serverLogger.debug("Server is running on port: " + port)
   });
 

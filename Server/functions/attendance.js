@@ -406,7 +406,7 @@ latestattendance = (data) => {
                 }, (error, results) => {
                     if (error) {
                         // var resultsHack = JSON.parse(JSON.stringify(results))
-                        console.log(results)
+                        // console.log(results)
                         attendanceLogger.trace('customer-attendance-fetchalluserAttendance - ' + data.userId + ' - error in fetching attendance')
                         attendanceLogger.error(error)
                         conn.release();

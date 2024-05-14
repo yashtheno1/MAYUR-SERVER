@@ -14,7 +14,7 @@ const mainFn = require("../functions/user");
   request body: {}
 */
 userRequest.get("/fetchusers", async (req, res) => {
-  console.log('fetchusers')
+  // console.log('fetchusers')
   await mainFn.fetchusers()
     .then(response => {
       return res.send(response);

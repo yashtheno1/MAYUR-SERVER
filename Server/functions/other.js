@@ -33,8 +33,9 @@ createenquiries = (data) => {
                 conn.query({
                     sql: 'INSERT INTO `enquiries` (`name`, `phone`, `message`, `user_ID`) VALUES (?,?,?,?);',
                     timeout: 40000,
-                    values: [data.name, data.phone, data.message, data.userId]
+                    values: [data.name || null, data.phone || null, data.message || null, data.userId || null]
                 }, (error, results) => {
+                    console.log(error)
                     if (error) {
                         conn.release();
                         return reject({ status: 'failed', err: error, data: { bResult: false } });
@@ -131,7 +132,7 @@ fetchactivity = (data) => {
 uploadimage = (req, res) => {
     return new Promise(async (resolve, reject) => {
         if (!req.file) {
-            console.log('req is empty');
+            // console.log('req is empty');
             return reject({ status: 'failed', err: 'No file uploaded', data: { bResult: false } });
         }
         // console.log('uploading image');

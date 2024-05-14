@@ -100,8 +100,8 @@ fetchbillbrief = (data) => {
             } else {
                 const id = data.userID ;
                 const query = 'SELECT b.ID AS billId, b.Date, b.Amount, e.Type, e.SubType AS subtype FROM bills b JOIN enrollments e ON b.Enrollment_ID = e.ID WHERE b.User_profile_ID = ?;';
-                console.log(query)
-                console.log(id)
+                // console.log(query)
+                // console.log(id)
                 conn.query({
                     sql: query,
                     timeout: 40000,
@@ -133,8 +133,8 @@ fetchbillbriefagent = (data) => {
             } else {
                 const id = data.agentId ;
                 const query = 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agent_Id = ?;';
-                console.log(query)
-                console.log(id)
+                // console.log(query)
+                // console.log(id)
                 conn.query({
                     sql: query,
                     timeout: 40000,
@@ -185,7 +185,7 @@ addagentdue = (data) => {
                                 });
                             } else {
                                 var resultsHack = JSON.parse(JSON.stringify(results))
-                                console.log(resultsHack)
+                                // console.log(resultsHack)
                                 var due = parseInt(resultsHack[0].DUE) + parseInt(data.amount);
                                 conn.query({
                                     sql: 'UPDATE `agent_profile` SET `DUE` = ? WHERE `ID` = ?;',

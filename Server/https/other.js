@@ -117,7 +117,7 @@ otherRequest.get("/fetchimage", async (req, res) => {
       // return res.sendFile(response.imageName);
     }) 
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       return res.status(500).send(err);
     }
     );
