@@ -20,7 +20,16 @@ createagent = (data) => {
                 conn.query({
                     sql: 'INSERT INTO `agent_profile` (`displayName`,`registeredName`,`phoneNumber`, `imageId`,`address`,`notes`,`userId`,`due`) VALUES (?,?,?,?,?,?,?,?);',
                     timeout: 40000,
-                    values: [data.displayName, data.registeredName, data.phoneNumber, data.imageId, data.address, data.notes, data.userId, data.due]
+                    values: [
+                        data.displayName === 'null' ? null : data.displayName,
+                        data.registeredName === 'null' ? null : data.registeredName,
+                        data.phoneNumber === 'null' ? null : data.phoneNumber,
+                        data.imageId === 'null' ? null : data.imageId,
+                        data.address === 'null' ? null : data.address,
+                        data.notes === 'null' ? null : data.notes,
+                        data.userId === 'null' ? null : data.userId,
+                        data.due === 'null' ? null : data.due
+                    ]
                 }, (error, results) => {
                     if (error) {
                         agentLogger.trace('agent-agent-createAgent - ' + data.phoneNumber + ' - error in insert query')
@@ -199,7 +208,16 @@ updateagentprofile = (data) => {
                 conn.query({
                     sql: 'UPDATE `agent_profile` SET `displayName` = ?, `registeredName` = ?, `phoneNumber` = ?, `imageId` = ?, `address` = ?, `notes` = ?, `due` = ? WHERE `id` = ?;',
                     timeout: 40000,
-                    values: [data.displayName, data.registeredName, data.phoneNumber, data.imageId, data.address, data.notes, data.due, data.agentId]
+                    values: [
+                        data.displayName === 'null' ? null : data.displayName,
+                        data.registeredName === 'null' ? null : data.registeredName,
+                        data.phoneNumber === 'null' ? null : data.phoneNumber,
+                        data.imageId === 'null' ? null : data.imageId,
+                        data.address === 'null' ? null : data.address,
+                        data.notes === 'null' ? null : data.notes,
+                        data.due === 'null' ? null : data.due,
+                        data.agentId
+                    ]
                 }, (error, results) => {
                     if (error) {
                         agentLogger.trace('agent-agent-updateAgentProfile - ' + data.agentId + ' - error in update query')

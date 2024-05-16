@@ -33,7 +33,7 @@ createenquiries = (data) => {
                 conn.query({
                     sql: 'INSERT INTO `enquiries` (`name`, `phone`, `message`, `user_ID`) VALUES (?,?,?,?);',
                     timeout: 40000,
-                    values: [data.name || null, data.phone || null, data.message || null, data.userId || null]
+                    values: [data.name === 'null' ? null : data.name, data.phone === 'null' ? null : data.phone, data.message === 'null' ? null : data.message, data.userId === 'null' ? null : data.userId]
                 }, (error, results) => {
                     console.log(error)
                     if (error) {
@@ -83,7 +83,12 @@ createactivity = (data) => {
                 conn.query({
                     sql: 'INSERT INTO `activity` (`User_profile_ID`, `Agent_ID`, `Note`, `Activity`) VALUES (?,?,?,?);',
                     timeout: 40000,
-                    values: [data.userId, data.agentId, data.note, data.activity]
+                    values: [
+                        data.userId === 'null' ? null : data.userId,
+                        data.agentId === 'null' ? null : data.agentId,
+                        data.note === 'null' ? null : data.note,
+                        data.activity === 'null' ? null : data.activity
+                    ]
                 }, (error, results) => {
                     if (error) {
                         conn.release();

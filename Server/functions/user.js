@@ -123,7 +123,17 @@ createuserprofile = (data) => {
                 conn.query({
                     sql: 'INSERT INTO `user_profile` (`userId`, `displayName`, `aadhar`, `registeredName`, `phoneNumber`, `imageId`, `address`, `notes`, `agentId`) VALUES (?,?,?,?,?,?,?,?,?);',
                     timeout: 40000,
-                    values: [data.userId, data.displayName, data.aadhar, data.registeredName, data.phoneNumber, data.imageId, data.address, data.notes, data.agentId]
+                    values: [
+                        data.userId,
+                        data.displayName === 'null' ? null : data.displayName,
+                        data.aadhar === 'null' ? null : data.aadhar,
+                        data.registeredName === 'null' ? null : data.registeredName,
+                        data.phoneNumber === 'null' ? null : data.phoneNumber,
+                        data.imageId === 'null' ? null : data.imageId,
+                        data.address === 'null' ? null : data.address,
+                        data.notes === 'null' ? null : data.notes,
+                        data.agentId === 'null' ? null : data.agentId
+                    ]
                 }, (error, results) => {
                     if (error) {
                         conn.release();
@@ -175,7 +185,11 @@ createuser = (data) => {
                 conn.query({
                     sql: 'INSERT INTO `Users` (`name`, `isAttendance`, `isDaily`) VALUES (?,?,?);',
                     timeout: 40000,
-                    values: [data.name, data.isAttendance, data.isDaily]
+                    values: [
+                        data.name === 'null' ? null : data.name,
+                        data.isAttendance === 'null' ? null : data.isAttendance,
+                        data.isDaily === 'null' ? null : data.isDaily
+                    ]
                 }, (error, results) => {
                     if (error) {
                         conn.release();
@@ -199,7 +213,16 @@ updateuserprofile = (data) => {
                 conn.query({
                     sql: 'UPDATE `user_profile` SET `displayName` = ?, `registeredName` = ?, `phoneNumber` = ?, `address` = ?, `notes` = ?, `agentId` = ?, `due` = ? WHERE `id` = ?;',
                     timeout: 40000,
-                    values: [data.displayName, data.registeredName, data.phoneNumber, data.address, data.notes, data.agentId, data.due, data.id]
+                    values: [
+                        data.displayName === 'null' ? null : data.displayName,
+                        data.registeredName === 'null' ? null : data.registeredName,
+                        data.phoneNumber === 'null' ? null : data.phoneNumber,
+                        data.address === 'null' ? null : data.address,
+                        data.notes === 'null' ? null : data.notes,
+                        data.agentId === 'null' ? null : data.agentId,
+                        data.due === 'null' ? null : data.due,
+                        data.id
+                    ]
                 }, (error, results) => {
                     if (error) {
                         conn.release();
