@@ -112,7 +112,6 @@ updateAttendance = (data) => {
 
 module.exports = {
     fetchAttendance,
-    fetchCustomerDetails,
     addAttendance,
     updateAttendance
 };
