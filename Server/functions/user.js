@@ -62,11 +62,15 @@ fetchuserprofilecount = (data) => {
             if (err) {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
-                let sql = 'SELECT COUNT(*) as totalCount FROM user_profile WHERE `userId` = ?';
-                const values = [data.userId];
-                if (data.isActive !== undefined) {
-                    sql += ' AND `isActive` = ?';
-                    values.push(data.isActive);
+                var sql = 'SELECT COUNT(*) as totalCount FROM user_profile';
+                const values = [];
+                console.log(data.userId);
+                if (data.userId == undefined || data.userId == null) {
+                    sql = 'SELECT COUNT(*) as totalCount FROM user_profile;'
+                }
+                else {
+                    sql = 'SELECT COUNT(*) as totalCount FROM user_profile WHERE `userId` = ?';
+                    values.push(data.userId);
                 }
                 conn.query({
                     sql: sql,

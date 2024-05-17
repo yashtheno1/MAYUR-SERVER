@@ -1,12 +1,5 @@
-[2024-05-07T08:46:21.091] [TRACE] catches - payagentdue -  - error thrown
-[2024-05-07T08:46:21.092] [ERROR] catches - TypeError: mainFn.payagentdue is not a function
-    at /workspaces/MAYUR-SERVER/Server/https/payments.js:214:18
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:149:13)
-    at Route.dispatch (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/route.js:119:3)
-    at Layer.handle [as handle_request] (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/layer.js:95:5)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:346:12)
-    at next (/workspaces/MAYUR-SERVER/Server/node_modules/express/lib/router/index.js:280:10)
-    at cors (/workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:188:7)
-    at /workspaces/MAYUR-SERVER/Server/node_modules/cors/lib/index.js:224:17
+[2024-05-17T14:16:44.107] [TRACE] catches - fetchbilldetailsagent - 2 - error thrown
+[2024-05-17T14:16:44.107] [ERROR] catches - TypeError: paymentsRequest.error is not a function
+    at /workspaces/MAYUR-SERVER/Server/https/payments.js:91:25
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /workspaces/MAYUR-SERVER/Server/https/payments.js:85:5

@@ -54,6 +54,51 @@ paymentsRequest.get("/fetchbilldetails", async (req, res) => {
 );
 
 /*
+  method: fetchbilldetailsagent
+  request type: GET
+  request body: {}
+  auth token: not required
+  params: {
+    billId: 'int'
+  }
+  response: {
+    agentId: 'int',
+    displayName: 'string',
+    registeredName: 'string',
+    isActive: 'boolean',
+    isCompleted: 'boolean',
+    phoneNumber: 'string',
+    address: 'string',
+    notes: 'string',
+    enrollmentId: 'int',
+    Type: 'string',
+    subtype: 'string',
+    billId: 'int'
+    date: 'date',
+    amount: 'int'
+    }
+  }
+*/
+paymentsRequest.get("/fetchbilldetailsagent", async (req, res) => {
+  var query = req.query;
+  try {
+    await mainFn.fetchbilldetailsagent(query)
+      .then(response => {
+        return res.send(response);
+      })
+      .catch(err => {
+        paymentsRequest.trace('fetchbilldetailsagent - ' + query.billId + ' - error thrown')
+        paymentsRequest.error(err)
+        return res.status(500).send(err);
+      });
+  } catch (e) {
+    catchLogger.trace('fetchbilldetailsagent - ' + query.billId + ' - error thrown')
+    catchLogger.error(e)
+  }
+}
+);
+
+/*
  method:createbill
   request type: POST
   request body: {

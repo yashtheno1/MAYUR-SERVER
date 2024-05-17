@@ -39,6 +39,36 @@ fetchbilldetails = (data) => {
     })
 }
 
+fetchbilldetailsagent = (data) => {
+    return new Promise(async (resolve, reject) => {
+        dbpool.getConnection((err, conn) => {
+            if (err) {
+                paymentsLogger.trace('payment-fetchbilldetails - error in db connection')
+                paymentsLogger.error(err)
+                return reject({ status: 'failed', err: err, data: { bResult: false } });
+            } else {
+                conn.query({
+                    sql: 'SELECT a.ID AS agentId, a.DisplayName, a.RegisteredName, a.isActive, a.PhoneNumber, a.Address, b.Notes, b.ID AS billId, b.Date, b.Amount FROM bills b JOIN agent_profile a ON b.Agent_Id = a.ID WHERE b.ID = ?;',
+                    timeout: 40000,
+                    values: [data.billId]
+                }, (error, results) => {
+                    if (error) {
+                        paymentsLogger.trace('payment-fetchbilldetails - error in select query')
+                        paymentsLogger.error(error)
+                        conn.release();
+                        return reject({ status: 'failed', err: error, data: { bResult: false } });
+                    }
+                    else {
+                        resultsHack = JSON.parse(JSON.stringify(results))
+                        conn.release();
+                        return resolve({ status: 'success', msg: 'bill details fetched', data: resultsHack[0] });
+                    }
+                })
+            }
+        })
+    })
+}
+
 createbill = (data) => {
     return new Promise(async (resolve, reject) => {
         dbpool.getConnection((err, conn) => {
@@ -132,7 +162,7 @@ fetchbillbriefagent = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 const id = data.agentId ;
-                const query = 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agent_Id = ?;';
+                const query = 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agent_Id = ? AND `Enrollment_ID` = `null`;';
                 // console.log(query)
                 // console.log(id)
                 conn.query({
@@ -389,6 +419,7 @@ payuserdue = (data) => {
 
 module.exports = {
     fetchbilldetails,
+    fetchbilldetailsagent,
     createbill,
     fetchbillbrief,
     fetchbillbriefagent,

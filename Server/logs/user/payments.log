@@ -1,5 +1,5 @@
-[2024-05-13T03:56:21.148] [TRACE] payments - payment-payuserdue - error in update query
-[2024-05-13T03:56:21.149] [ERROR] payments - Error: Unknown column 'NaN' in 'field list'
+[2024-05-17T14:16:44.104] [TRACE] payments - payment-fetchbilldetails - error in select query
+[2024-05-17T14:16:44.105] [ERROR] payments - Error: Unknown column 'a.isCompleted' in 'field list'
     at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
     at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
     at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
@@ -13,108 +13,6 @@
   code: 'ER_BAD_FIELD_ERROR',
   errno: 1054,
   sqlState: '42S22',
-  sqlMessage: "Unknown column 'NaN' in 'field list'",
-  sql: "UPDATE `enrollments` SET `paid` = NaN WHERE `ID` = '30';"
-}
-[2024-05-13T03:56:21.156] [TRACE] payments - payuserdue -  - error thrown
-[2024-05-13T03:56:21.156] [ERROR] payments - {
-  status: 'failed',
-  err: Error: Unknown column 'NaN' in 'field list'
-      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
-      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
-      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
-      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
-      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
-      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
-      at Socket.emit (node:events:519:28)
-      at Socket.emit (node:domain:488:12)
-      at addChunk (node:internal/streams/readable:559:12)
-      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
-    code: 'ER_BAD_FIELD_ERROR',
-    errno: 1054,
-    sqlState: '42S22',
-    sqlMessage: "Unknown column 'NaN' in 'field list'",
-    sql: "UPDATE `enrollments` SET `paid` = NaN WHERE `ID` = '30';"
-  },
-  data: { bResult: false }
-}
-[2024-05-13T11:53:50.994] [TRACE] payments - payment-fetchbillbrief - error in select query
-[2024-05-13T11:53:50.994] [ERROR] payments - Error: Unknown column 'b.agentId' in 'where clause'
-    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
-    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
-    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
-    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
-    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
-    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
-    at Socket.emit (node:events:519:28)
-    at Socket.emit (node:domain:488:12)
-    at addChunk (node:internal/streams/readable:559:12)
-    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
-  code: 'ER_BAD_FIELD_ERROR',
-  errno: 1054,
-  sqlState: '42S22',
-  sqlMessage: "Unknown column 'b.agentId' in 'where clause'",
-  sql: "SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agentId = '1';"
-}
-[2024-05-13T11:53:50.995] [TRACE] payments - fetchbill - 1 - error thrown
-[2024-05-13T11:53:50.995] [ERROR] payments - {
-  status: 'failed',
-  err: Error: Unknown column 'b.agentId' in 'where clause'
-      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
-      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
-      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
-      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
-      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
-      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
-      at Socket.emit (node:events:519:28)
-      at Socket.emit (node:domain:488:12)
-      at addChunk (node:internal/streams/readable:559:12)
-      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
-    code: 'ER_BAD_FIELD_ERROR',
-    errno: 1054,
-    sqlState: '42S22',
-    sqlMessage: "Unknown column 'b.agentId' in 'where clause'",
-    sql: "SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agentId = '1';"
-  },
-  data: { bResult: false }
-}
-[2024-05-13T11:54:54.443] [TRACE] payments - payment-fetchbillbrief - error in select query
-[2024-05-13T11:54:54.443] [ERROR] payments - Error: Unknown column 'b.agentID' in 'where clause'
-    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
-    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
-    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
-    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
-    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
-    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
-    at Socket.emit (node:events:519:28)
-    at Socket.emit (node:domain:488:12)
-    at addChunk (node:internal/streams/readable:559:12)
-    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
-  code: 'ER_BAD_FIELD_ERROR',
-  errno: 1054,
-  sqlState: '42S22',
-  sqlMessage: "Unknown column 'b.agentID' in 'where clause'",
-  sql: "SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agentID = '1';"
-}
-[2024-05-13T11:54:54.445] [TRACE] payments - fetchbill - 1 - error thrown
-[2024-05-13T11:54:54.445] [ERROR] payments - {
-  status: 'failed',
-  err: Error: Unknown column 'b.agentID' in 'where clause'
-      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
-      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
-      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
-      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
-      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
-      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
-      at Socket.emit (node:events:519:28)
-      at Socket.emit (node:domain:488:12)
-      at addChunk (node:internal/streams/readable:559:12)
-      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
-    code: 'ER_BAD_FIELD_ERROR',
-    errno: 1054,
-    sqlState: '42S22',
-    sqlMessage: "Unknown column 'b.agentID' in 'where clause'",
-    sql: "SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agentID = '1';"
-  },
-  data: { bResult: false }
+  sqlMessage: "Unknown column 'a.isCompleted' in 'field list'",
+  sql: "SELECT a.ID AS agentId, a.DisplayName, a.RegisteredName, a.isActive, a.isCompleted, a.PhoneNumber, a.Address, a.Notes, b.ID AS billId, b.Date, b.Amount FROM bills b JOIN agent_profile a ON b.Agent_Id = a.ID WHERE b.ID = '2';"
 }
