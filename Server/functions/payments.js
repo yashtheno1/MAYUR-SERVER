@@ -84,7 +84,7 @@ createbill = (data) => {
                         conn.release();
                         return reject({ status: 'failed', err: err, data: { bResult: false } });
                     } else {
-                        console.log(JSON.stringify(data.date))
+                        // console.log(JSON.stringify(data.date))
                         conn.query({
                             sql: 'INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES (?,?,?,?,?,?);',
                             timeout: 40000,
