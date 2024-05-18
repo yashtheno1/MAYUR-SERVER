@@ -119,7 +119,7 @@ fetchalluserAttendance = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 conn.query({
-                    sql: 'SELECT enrollments.*, user_profile.* FROM enrollments JOIN user_profile ON enrollments.User_profile_Id = user_profile.ID JOIN users ON user_profile.userId = users.id WHERE users.id = ?;',
+                    sql: 'SELECT enrollments.*,enrollments.ID AS EID, user_profile.* FROM enrollments JOIN user_profile ON enrollments.User_profile_Id = user_profile.ID JOIN users ON user_profile.userId = users.id WHERE users.id = ?;',
                     timeout: 40000,
                     values: [data.userId]
                 }, (error, results) => {
