@@ -162,7 +162,7 @@ fetchbillbriefagent = (data) => {
                 return reject({ status: 'failed', err: err, data: { bResult: false } });
             } else {
                 const id = data.agentId ;
-                const query = 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agent_Id = ? AND `Enrollment_ID` = `null`;';
+                const query = 'SELECT b.ID AS billId, b.Date, b.Amount FROM bills b WHERE b.agent_Id = ? AND `Enrollment_ID` IS NULL;';
                 // console.log(query)
                 // console.log(id)
                 conn.query({

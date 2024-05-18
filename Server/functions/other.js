@@ -111,7 +111,7 @@ fetchactivity = (data) => {
             } else {
                 var query = 'SELECT * FROM `activity` WHERE `User_profile_ID` = ?;';
                 var values = [data.userId]
-                if (data.agentId) {
+                if (data.userId == null || data.userId == 'null' || data.userId == undefined) {
                     query = 'SELECT * FROM `activity` WHERE `Agent_ID` = ?;';
                     values = [data.agentId]
                 }

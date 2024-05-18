@@ -1,5 +1,5 @@
-[2024-05-17T14:16:44.104] [TRACE] payments - payment-fetchbilldetails - error in select query
-[2024-05-17T14:16:44.105] [ERROR] payments - Error: Unknown column 'a.isCompleted' in 'field list'
+[2024-05-18T05:37:53.081] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:37:53.081] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
     at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
     at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
     at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
@@ -10,9 +10,471 @@
     at Socket.emit (node:domain:488:12)
     at addChunk (node:internal/streams/readable:559:12)
     at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
-  code: 'ER_BAD_FIELD_ERROR',
-  errno: 1054,
-  sqlState: '42S22',
-  sqlMessage: "Unknown column 'a.isCompleted' in 'field list'",
-  sql: "SELECT a.ID AS agentId, a.DisplayName, a.RegisteredName, a.isActive, a.isCompleted, a.PhoneNumber, a.Address, a.Notes, b.ID AS billId, b.Date, b.Amount FROM bills b JOIN agent_profile a ON b.Agent_Id = a.ID WHERE b.ID = '2';"
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:37:53.089] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:37:53.089] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:37:56.386] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:37:56.386] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:37:56.392] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:37:56.392] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:18.555] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:18.556] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:38:18.562] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:18.562] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:19.204] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:19.204] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:38:19.211] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:19.211] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:19.653] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:19.653] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:38:19.660] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:19.660] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:20.230] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:20.230] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:38:20.237] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:20.237] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:28.659] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:28.659] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+}
+[2024-05-18T05:38:28.666] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:28.666] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','300','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:32.637] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:32.637] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','2','w');"
+}
+[2024-05-18T05:38:32.644] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:32.644] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','2','w');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:38:39.672] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:38:39.672] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','2','w2');"
+}
+[2024-05-18T05:38:39.681] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:38:39.681] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('23','0','13','2024-05-18 00:00:00','2','w2');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:40:11.595] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:40:11.595] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('24','0','14','2024-05-18 00:00:00','122','2');"
+}
+[2024-05-18T05:40:11.600] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:40:11.600] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('24','0','14','2024-05-18 00:00:00','122','2');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:43:18.412] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:43:18.413] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('25','0','15','2024-05-18 00:00:00','213','');"
+}
+[2024-05-18T05:43:18.418] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:43:18.418] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('25','0','15','2024-05-18 00:00:00','213','');"
+  },
+  data: { bResult: false }
+}
+[2024-05-18T05:45:04.413] [TRACE] payments - payment-createbill - error in insert query
+[2024-05-18T05:45:04.413] [ERROR] payments - Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+    at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+    at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+    at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+    at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+  code: 'ER_NO_REFERENCED_ROW_2',
+  errno: 1452,
+  sqlState: '23000',
+  sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+  sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('25','0','15','2024-05-18 00:00:00','213','');"
+}
+[2024-05-18T05:45:04.419] [TRACE] payments - createbill -  - error thrown
+[2024-05-18T05:45:04.419] [ERROR] payments - {
+  status: 'failed',
+  err: Error: Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)
+      at Packet.asError (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packets/packet.js:728:17)
+      at Query.execute (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/commands/command.js:29:26)
+      at PoolConnection.handlePacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:456:32)
+      at PacketParser.onPacket (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:85:12)
+      at PacketParser.executeStart (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/packet_parser.js:75:16)
+      at Socket.<anonymous> (/workspaces/MAYUR-SERVER/Server/node_modules/mysql2/lib/connection.js:92:25)
+      at Socket.emit (node:events:519:28)
+      at Socket.emit (node:domain:488:12)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3) {
+    code: 'ER_NO_REFERENCED_ROW_2',
+    errno: 1452,
+    sqlState: '23000',
+    sqlMessage: 'Cannot add or update a child row: a foreign key constraint fails (`u383951428_Mayur_Motors`.`bills`, CONSTRAINT `fk_agent_for_bills` FOREIGN KEY (`Agent_ID`) REFERENCES `agent_profile` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE)',
+    sql: "INSERT INTO `bills` (`User_profile_ID`, `Agent_Id`, `Enrollment_ID`, `Date`, `Amount`, `Notes`) VALUES ('25','0','15','2024-05-18 00:00:00','213','');"
+  },
+  data: { bResult: false }
 }

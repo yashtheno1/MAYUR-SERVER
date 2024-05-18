@@ -65,7 +65,7 @@ fetchuserprofilecount = (data) => {
                 var sql = 'SELECT COUNT(*) as totalCount FROM user_profile';
                 const values = [];
                 console.log(data.userId);
-                if (data.userId == undefined || data.userId == null) {
+                if (data.userId == undefined || data.userId == null || data.userId == 'null') {
                     sql = 'SELECT COUNT(*) as totalCount FROM user_profile;'
                 }
                 else {
